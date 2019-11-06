@@ -1,7 +1,7 @@
 /*global module*/
 
 const SECTION = 'settings';
-const APP_ID = 'overview';
+const APP_ID = '';
 const FRONTEND_PORT = 8002;
 const API_PORT = 8888;
 const routes = {};
