@@ -27,6 +27,6 @@ global.window.insights = {
 };
 
 global.insights.chrome = {
-    init: function(){},
-    identifyApp: function(app){}
-}
+    init() {},
+    identifyApp() {}
+};

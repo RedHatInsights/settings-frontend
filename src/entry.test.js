@@ -1,5 +1,5 @@
 /*global describe, it, expect*/
-import { getBaseName } from '@redhat-cloud-services/frontend-components-utilities/files/helpers'; 
+import { getBaseName } from '@redhat-cloud-services/frontend-components-utilities/files/helpers';
 
 describe('getBaseName', () => {
     it('should find the right base name on Stable ', () => {
