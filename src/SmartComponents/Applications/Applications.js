@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
+import { Skeleton, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 import FormRender from '@data-driven-forms/react-form-renderer';
 import { formFieldsMapper, layoutMapper } from '@data-driven-forms/pf4-component-mapper';
 import registryDecorator from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
@@ -51,8 +51,7 @@ class Applications extends Component {
                     />
             </React.Fragment>
         )
-        : < p > loading</p >
-        // skeleton laoder rhcs forntedn components
+        : <Skeleton size='lg' />
         ;
     }
 }
