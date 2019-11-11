@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Skeleton, PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
+import { Skeleton, PageHeader, PageHeaderTitle, Main } from '@redhat-cloud-services/frontend-components';
 import FormRender from '@data-driven-forms/react-form-renderer';
 import { formFieldsMapper, layoutMapper } from '@data-driven-forms/pf4-component-mapper';
 import registryDecorator from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
@@ -36,14 +36,16 @@ class Applications extends Component {
                         <PageHeaderTitle title='Applications Settings'/>
                         <p>{ `Settings for ${ appName }` }</p>
                     </PageHeader>
-                    <FormRender
-                        formFieldsMapper={ formFieldsMapper }
-                        layoutMapper={ layoutMapper }
-                        schema={ schema }
-                        onSubmit={ (value) => localStorage.setItem(localStorageKey(appName, user), JSON.stringify(value)) }
-                        onCancel={ () => console.log('Cancel action') }
-                        initialValues={ JSON.parse(localStorage.getItem(localStorageKey(appName, user))) || {} }
-                    />
+                    <Main>
+                        <FormRender
+                            formFieldsMapper={ formFieldsMapper }
+                            layoutMapper={ layoutMapper }
+                            schema={ schema }
+                            onSubmit={ (value) => localStorage.setItem(localStorageKey(appName, user), JSON.stringify(value)) }
+                            onCancel={ () => console.log('Cancel action') }
+                            initialValues={ JSON.parse(localStorage.getItem(localStorageKey(appName, user))) || {} }
+                        />
+                    </Main>
                 </React.Fragment>
             )
             : <Skeleton size='lg' />
