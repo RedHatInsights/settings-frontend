@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Skeleton, PageHeader, PageHeaderTitle, Main } from '@redhat-cloud-services/frontend-components';
+import { Stack, StackItem, Card, CardBody } from '@patternfly/react-core';
 import FormRender from '@data-driven-forms/react-form-renderer';
 import { formFieldsMapper, layoutMapper } from '@data-driven-forms/pf4-component-mapper';
 import registryDecorator from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
@@ -21,17 +22,26 @@ class Applications extends Component {
     }
 
     renderForms(schemas, appName) {
-        return schemas.map((schema, i) => (
-            <FormRender
-                formFieldsMapper={ formFieldsMapper }
-                layoutMapper={ layoutMapper }
-                schema={ schema }
-                onSubmit={ (values) => this.props.saveValues(appName, values) }
-                onCancel={ () => ({}) }
-                canReset
-                key={ `settings-form-${i}` }
-            />
-        ));
+        return (
+            <Stack>
+                { schemas.map((schema, i) => (
+                    <StackItem>
+                        <Card>
+                            <CardBody>
+                                <FormRender
+                                    formFieldsMapper={ formFieldsMapper }
+                                    layoutMapper={ layoutMapper }
+                                    schema={ schema }
+                                    onSubmit={ (values) => this.props.saveValues(appName, values) }
+                                    onCancel={ () => ({}) }
+                                    canReset
+                                    key={ `settings-form-${i}` }
+                                />
+                            </CardBody>
+                        </Card>
+                    </StackItem>
+                )) }
+            </Stack>);
     }
 
     render() {
