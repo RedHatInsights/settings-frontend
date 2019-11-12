@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -21,6 +20,20 @@ class Applications extends Component {
         };
     }
 
+    renderForms(schemas, appName) {
+        return schemas.map((schema, i) => (
+            <FormRender
+                formFieldsMapper={ formFieldsMapper }
+                layoutMapper={ layoutMapper }
+                schema={ schema }
+                onSubmit={ (values) => this.props.saveValues(appName, values) }
+                onCancel={ () => ({}) }
+                canReset
+                key={ `settings-form-${i}` }
+            />
+        ));
+    }
+
     render() {
         const { appName }  = this.state;
         const { loaded, schema } = this.props;
@@ -32,13 +45,7 @@ class Applications extends Component {
                         <p>{ `Settings for ${ appName }` }</p>
                     </PageHeader>
                     <Main>
-                        <FormRender
-                            formFieldsMapper={ formFieldsMapper }
-                            layoutMapper={ layoutMapper }
-                            schema={ schema }
-                            onSubmit={ (values) => this.props.saveValues(appName, values) }
-                            onCancel={ () => ({}) }
-                        />
+                        { this.renderForms(schema, appName) }
                     </Main>
                 </React.Fragment>
             )
@@ -47,7 +54,7 @@ class Applications extends Component {
     }
 }
 
-Applications.propTypes =  {
+Applications.propTypes = {
     match: PropTypes.shape({
         params: PropTypes.shape({
             id: PropTypes.string
@@ -56,7 +63,7 @@ Applications.propTypes =  {
     getSchema: PropTypes.func,
     loaded: PropTypes.bool,
     saveValues: PropTypes.func,
-    schema: PropTypes.object
+    schema: PropTypes.arrayOf(PropTypes.object)
 };
 
 function mapStateToProps({ applicationsStore }) {

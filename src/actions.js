@@ -1,4 +1,3 @@
-/* eslint-disable  */
 import { getApplicationSchema, saveValues as save } from './api';
 import { ACTION_TYPES } from './constants';
 
