@@ -21,46 +21,50 @@ class Applications extends Component {
         };
     }
 
-    renderForms(schemas, appName) {
+    renderForms(schemas, appName, loaded) {
         return (
             <Stack>
-                { schemas.map((schema, i) => (
-                    <StackItem>
+                { loaded
+                    ?  schemas.map((schema, i) => (
+                        <StackItem key={ `settings-form-${i}` }>
+                            <Card>
+                                <CardBody>
+                                    <FormRender
+                                        formFieldsMapper={ formFieldsMapper }
+                                        layoutMapper={ layoutMapper }
+                                        schema={ schema }
+                                        onSubmit={ (values) => this.props.saveValues(appName, values) }
+                                        canReset
+                                    />
+                                </CardBody>
+                            </Card>
+                        </StackItem>
+                    ))
+                    : <StackItem>
                         <Card>
                             <CardBody>
-                                <FormRender
-                                    formFieldsMapper={ formFieldsMapper }
-                                    layoutMapper={ layoutMapper }
-                                    schema={ schema }
-                                    onSubmit={ (values) => this.props.saveValues(appName, values) }
-                                    onCancel={ () => ({}) }
-                                    canReset
-                                    key={ `settings-form-${i}` }
-                                />
+                                <Skeleton size='lg' />
                             </CardBody>
                         </Card>
                     </StackItem>
-                )) }
+                }
             </Stack>);
     }
 
     render() {
         const { appName }  = this.state;
         const { loaded, schema } = this.props;
-        return loaded
-            ? (
-                <React.Fragment>
-                    <PageHeader>
-                        <PageHeaderTitle title='Applications Settings'/>
-                        <p>{ `Settings for ${ appName }` }</p>
-                    </PageHeader>
-                    <Main>
-                        { this.renderForms(schema, appName) }
-                    </Main>
-                </React.Fragment>
-            )
-            : <Skeleton size='lg' />
-        ;
+        return (
+            <React.Fragment>
+                <PageHeader>
+                    <PageHeaderTitle title='Applications Settings'/>
+                    <p>{ `Settings for ${ appName }` }</p>
+                </PageHeader>
+                <Main>
+                    { this.renderForms(schema, appName, loaded) }
+                </Main>
+            </React.Fragment>
+        );
     }
 }
 
