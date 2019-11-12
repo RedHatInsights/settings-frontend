@@ -1,4 +1,4 @@
-/* eslint-disable  */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -9,9 +9,6 @@ import registryDecorator from '@redhat-cloud-services/frontend-components-utilit
 import { register } from '../../store';
 import reducers  from '../../store/reduces.js';
 import { getSchema, saveValues } from '../../actions';
-
-const localStorageKey = (appName, user) => `@@settings-${appName}-${user}`;
-
 
 @registryDecorator()
 class Applications extends Component {
@@ -24,12 +21,8 @@ class Applications extends Component {
         };
     }
 
-    componentDidMount() {
-        insights.chrome.auth.getUser().then(auth => ({ user: auth.identity.user.username })).then(user => this.setState(user));
-    }
-
     render() {
-        const { appName, user }  = this.state;
+        const { appName }  = this.state;
         const { loaded, schema } = this.props;
         return loaded
             ? (
@@ -43,9 +36,8 @@ class Applications extends Component {
                             formFieldsMapper={ formFieldsMapper }
                             layoutMapper={ layoutMapper }
                             schema={ schema }
-                            onSubmit={(values) => this.props.saveValues(appName, user, values)}
-                            onCancel={ () => console.log('Cancel action') }
-                            initialValues={ JSON.parse(localStorage.getItem(localStorageKey(appName, user))) || {} }
+                            onSubmit={ (values) => this.props.saveValues(appName, values) }
+                            onCancel={ () => ({}) }
                         />
                     </Main>
                 </React.Fragment>
@@ -63,6 +55,7 @@ Applications.propTypes =  {
     }),
     getSchema: PropTypes.func,
     loaded: PropTypes.bool,
+    saveValues: PropTypes.func,
     schema: PropTypes.object
 };
 
@@ -76,7 +69,7 @@ function mapStateToProps({ applicationsStore }) {
 function mapDispatchToProps(dispatch) {
     return {
         getSchema: (application) => dispatch(getSchema(application)),
-        saveValues: (application, user, values) => dispatch(saveValues(application, user, values))
+        saveValues: (application, values) => dispatch(saveValues(application, values))
     };
 }
 
