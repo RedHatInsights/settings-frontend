@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -7,9 +8,10 @@ import { formFieldsMapper, layoutMapper } from '@data-driven-forms/pf4-component
 import registryDecorator from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { register } from '../../store';
 import reducers  from '../../store/reduces.js';
-import { getSchema } from '../../actions';
+import { getSchema, saveValues } from '../../actions';
 
 const localStorageKey = (appName, user) => `@@settings-${appName}-${user}`;
+
 
 @registryDecorator()
 class Applications extends Component {
@@ -41,7 +43,7 @@ class Applications extends Component {
                             formFieldsMapper={ formFieldsMapper }
                             layoutMapper={ layoutMapper }
                             schema={ schema }
-                            onSubmit={ (value) => localStorage.setItem(localStorageKey(appName, user), JSON.stringify(value)) }
+                            onSubmit={(values) => this.props.saveValues(appName, user, values)}
                             onCancel={ () => console.log('Cancel action') }
                             initialValues={ JSON.parse(localStorage.getItem(localStorageKey(appName, user))) || {} }
                         />
@@ -73,9 +75,9 @@ function mapStateToProps({ applicationsStore }) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getSchema: (application) => dispatch(getSchema(application))
+        getSchema: (application) => dispatch(getSchema(application)),
+        saveValues: (application, user, values) => dispatch(saveValues(application, user, values))
     };
 }
 
-const ApplicationsConnected =  connect(mapStateToProps, mapDispatchToProps)(Applications);
-export default ApplicationsConnected;
+export default connect(mapStateToProps, mapDispatchToProps)(Applications);

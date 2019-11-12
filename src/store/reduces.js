@@ -19,6 +19,7 @@ const getSchema = (store, { payload }) => {
 export default {
     applicationsStore: applyReducerHash({
         [ACTION_TYPES.GET_SCHEMA_FULFILLED]: getSchema,
-        [ACTION_TYPES.GET_SCHEMA_PENDING]: loading
+        [ACTION_TYPES.GET_SCHEMA_PENDING]: loading,
+        [ACTION_TYPES.SAVE_VALUES_FULFILLED]: (store) => ({ ...store })
     }, defaultState)
 };
