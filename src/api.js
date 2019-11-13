@@ -15,7 +15,7 @@ const mockSchema = (application, user) => ([{
         initialValue: getLocalStorageItem(localStorageKey(application, user), 'email')
     }, {
         name: 'hideSateliteSystems',
-        label: 'Hide Satelite Systems',
+        label: 'Hide Satelite systems',
         component: componentTypes.SWITCH,
         type: 'boolean',
         initialValue: getLocalStorageItem(localStorageKey(application, user), 'hideSateliteSystems')
