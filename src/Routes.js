@@ -5,8 +5,11 @@ import asyncComponent from './Utilities/asyncComponent';
 import some from 'lodash/some';
 
 const General = asyncComponent(() => import(/* webpackChunkName: "General" */ './SmartComponents/General/General'));
+const Applications = asyncComponent(() => import(/* webpackChunkName: "Applications" */ './SmartComponents/Applications/Applications'));
+
 const paths = {
-    general: '/general'
+    general: '/general',
+    applications: '/applications/:id'
 };
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
@@ -29,6 +32,7 @@ export const Routes = (props) => {
     return (
         <Switch>
             <InsightsRoute path={ paths.general } component={ General } rootClass='general'/>
+            <InsightsRoute exact path={ paths.applications } component={ Applications } rootClass='applications'/>
 
             { /* Finally, catch all unmatched routes */ }
             <Route render={ () => some(paths, p => p === path) ? null : (<Redirect to={ paths.general }/>) }/>

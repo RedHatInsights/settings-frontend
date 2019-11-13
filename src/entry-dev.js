@@ -9,7 +9,7 @@ import { getBaseName } from '@redhat-cloud-services/frontend-components-utilitie
 
 ReactDOM.render(
     <Provider store={ init(logger).getStore() }>
-        <Router basename={ getBaseName(window.location.pathname) }>
+        <Router basename={ getBaseName(window.location.pathname, 1) }>
             <App/>
         </Router>
     </Provider>,
