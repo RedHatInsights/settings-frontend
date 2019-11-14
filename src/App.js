@@ -14,7 +14,7 @@ class App extends Component {
         if (location.pathname.indexOf('applications') !== -1) {
             insights.chrome.identifyApp('applications');
         } else {
-            insights.chrome.identifyApp('settings');
+            insights.chrome.identifyApp('');
         }
     }
 
