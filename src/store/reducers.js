@@ -1,20 +1,21 @@
 import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/files/ReducerRegistry';
 import { ACTION_TYPES } from '../constants';
 
-const defaultState = { loaded: false };
+export const defaultState = { loaded: false };
 
-const loading = () => {
+export const loading = () => {
     return {
         loaded: false,
         schema: {}
     };};
 
-const getSchema = (store, { payload }) => {
+export const getSchema = (store, { payload }) => {
     return {
         ...store,
         schema: payload,
         loaded: true
-    };};
+    };
+};
 
 export default {
     applicationsStore: applyReducerHash({

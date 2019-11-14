@@ -28,5 +28,8 @@ global.window.insights = {
 
 global.insights.chrome = {
     init() {},
-    identifyApp() {}
+    identifyApp() {},
+    auth: {
+        getUser: () => Promise.resolve(({ identity: { user: { username: 'user' }}}))
+    }
 };

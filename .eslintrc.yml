@@ -15,6 +15,7 @@ parserOptions:
   sourceType: module
 globals:
   beforeAll: true
+  beforeEach: true
   describe: true
   expect: true
   global: true

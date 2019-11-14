@@ -7,7 +7,7 @@ import FormRender from '@data-driven-forms/react-form-renderer';
 import { formFieldsMapper, layoutMapper } from '@data-driven-forms/pf4-component-mapper';
 import registryDecorator from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { register } from '../../store';
-import reducers  from '../../store/reduces.js';
+import reducers  from '../../store/reducers';
 import { getSchema, saveValues } from '../../actions';
 
 @registryDecorator()
