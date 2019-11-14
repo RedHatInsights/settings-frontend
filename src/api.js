@@ -1,7 +1,7 @@
 import { componentTypes, validatorTypes } from '@data-driven-forms/react-form-renderer';
 
 const localStorageKey = (application, user) => `@@settings-${application}-${user}`;
-const getLocalStorageItem = (key, subkey) => (JSON.parse(localStorage.getItem(key) || {})[subkey]);
+const getLocalStorageItem = (key, subkey) => JSON.parse(localStorage.getItem(key) || '{}')[subkey];
 
 const mockSchema = (application, user) => ([{
     fields: [{
