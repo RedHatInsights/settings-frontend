@@ -11,7 +11,9 @@ import { init } from '../../store';
 const emptyState = {
     applicationsStore: {
         loaded: false,
-        schema: []
+        configLoaded: false,
+        schema: [],
+        appsConfig: {}
     }
 };
 const mockState = {
@@ -34,7 +36,15 @@ const mockState = {
                 type: 'boolean',
                 initialValue: false
             }]
-        }]
+        }],
+        configLoaded: true,
+        appsConfig: {
+            testapp: {
+                frontend: {
+                    title: 'Test app'
+                }
+            }
+        }
     }
 };
 let mockStore;

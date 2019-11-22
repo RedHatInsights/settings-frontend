@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component should render - multiple schema 1`] = `
+<Stack
+  className=""
+  component="div"
+  gutter={null}
+>
+  <StackItem
+    className=""
+    isFilled={false}
+    key="settings-form-0"
+  >
+    <Card
+      className=""
+      component="article"
+      isHoverable={false}
+    >
+      <CardBody
+        className=""
+        component="div"
+        isFilled={true}
+      >
+        <FormRenderer
+          buttonClassName=""
+          buttonsLabels={Object {}}
+          canReset={true}
+          clearOnUnmount={false}
+          disableSubmit={Array []}
+          formFieldsMapper={
+            Object {
+              "checkbox": [Function],
+              "date-picker": [Function],
+              "field-array": [Function],
+              "plain-text": [Function],
+              "radio": [Function],
+              "select-field": [Function],
+              "sub-form": [Function],
+              "switch-field": [Function],
+              "tabs": [Function],
+              "text-field": [Function],
+              "textarea-field": [Function],
+              "time-picker": [Function],
+              "wizard": [Function],
+            }
+          }
+          formType="pf3"
+          initialValues={Object {}}
+          layoutMapper={
+            Object {
+              "Button": [Function],
+              "ButtonGroup": [Function],
+              "Description": [Function],
+              "FormWrapper": [Function],
+              "Title": [Function],
+            }
+          }
+          onSubmit={[Function]}
+          resetAble={false}
+          schema={Object {}}
+          schemaType="default"
+          showFormControls={true}
+          uiSchema={Object {}}
+        />
+      </CardBody>
+    </Card>
+  </StackItem>
+  <StackItem
+    className=""
+    isFilled={false}
+    key="settings-form-1"
+  >
+    <Card
+      className=""
+      component="article"
+      isHoverable={false}
+    >
+      <CardBody
+        className=""
+        component="div"
+        isFilled={true}
+      >
+        <FormRenderer
+          buttonClassName=""
+          buttonsLabels={Object {}}
+          canReset={true}
+          clearOnUnmount={false}
+          disableSubmit={Array []}
+          formFieldsMapper={
+            Object {
+              "checkbox": [Function],
+              "date-picker": [Function],
+              "field-array": [Function],
+              "plain-text": [Function],
+              "radio": [Function],
+              "select-field": [Function],
+              "sub-form": [Function],
+              "switch-field": [Function],
+              "tabs": [Function],
+              "text-field": [Function],
+              "textarea-field": [Function],
+              "time-picker": [Function],
+              "wizard": [Function],
+            }
+          }
+          formType="pf3"
+          initialValues={Object {}}
+          layoutMapper={
+            Object {
+              "Button": [Function],
+              "ButtonGroup": [Function],
+              "Description": [Function],
+              "FormWrapper": [Function],
+              "Title": [Function],
+            }
+          }
+          onSubmit={[Function]}
+          resetAble={false}
+          schema={Object {}}
+          schemaType="default"
+          showFormControls={true}
+          uiSchema={Object {}}
+        />
+      </CardBody>
+    </Card>
+  </StackItem>
+</Stack>
+`;
+
+exports[`component should render - no data 1`] = `
+<Stack
+  className=""
+  component="div"
+  gutter={null}
+>
+  <StackItem
+    className=""
+    isFilled={false}
+  >
+    <Card
+      className=""
+      component="article"
+      isHoverable={false}
+    >
+      <CardBody
+        className=""
+        component="div"
+        isFilled={true}
+      >
+        <Skeleton
+          size="lg"
+        />
+      </CardBody>
+    </Card>
+  </StackItem>
+</Stack>
+`;
+
+exports[`component should render - no schema 1`] = `
+<Stack
+  className=""
+  component="div"
+  gutter={null}
+/>
+`;
+
+exports[`component should render - one schema 1`] = `
+<Stack
+  className=""
+  component="div"
+  gutter={null}
+>
+  <StackItem
+    className=""
+    isFilled={false}
+    key="settings-form-0"
+  >
+    <Card
+      className=""
+      component="article"
+      isHoverable={false}
+    >
+      <CardBody
+        className=""
+        component="div"
+        isFilled={true}
+      >
+        <FormRenderer
+          buttonClassName=""
+          buttonsLabels={Object {}}
+          canReset={true}
+          clearOnUnmount={false}
+          disableSubmit={Array []}
+          formFieldsMapper={
+            Object {
+              "checkbox": [Function],
+              "date-picker": [Function],
+              "field-array": [Function],
+              "plain-text": [Function],
+              "radio": [Function],
+              "select-field": [Function],
+              "sub-form": [Function],
+              "switch-field": [Function],
+              "tabs": [Function],
+              "text-field": [Function],
+              "textarea-field": [Function],
+              "time-picker": [Function],
+              "wizard": [Function],
+            }
+          }
+          formType="pf3"
+          initialValues={Object {}}
+          layoutMapper={
+            Object {
+              "Button": [Function],
+              "ButtonGroup": [Function],
+              "Description": [Function],
+              "FormWrapper": [Function],
+              "Title": [Function],
+            }
+          }
+          onSubmit={[Function]}
+          resetAble={false}
+          schema={Object {}}
+          schemaType="default"
+          showFormControls={true}
+          uiSchema={Object {}}
+        />
+      </CardBody>
+    </Card>
+  </StackItem>
+</Stack>
+`;
