@@ -111,14 +111,14 @@ Array [
               >
                 <label
                   class="pf-c-switch"
-                  for="hideSateliteSystems"
+                  for="hideSatelliteSystems"
                 >
                   <input
                     aria-label=""
                     class="pf-c-switch__input"
-                    id="hideSateliteSystems"
-                    labeloff="Hide Satelite systems"
-                    name="hideSateliteSystems"
+                    id="hideSatelliteSystems"
+                    labeloff="Hide Satellite systems"
+                    name="hideSatelliteSystems"
                     type="checkbox"
                     value="false"
                   />
@@ -129,13 +129,13 @@ Array [
                     aria-hidden="true"
                     class="pf-c-switch__label pf-m-on"
                   >
-                    Hide Satelite systems
+                    Hide Satellite systems
                   </span>
                   <span
                     aria-hidden="true"
                     class="pf-c-switch__label pf-m-off"
                   >
-                    Hide Satelite systems
+                    Hide Satellite systems
                   </span>
                 </label>
               </div>
