@@ -108,20 +108,19 @@ exports[`General component should render correctly 1`] = `
                   page-type=""
                 >
                   <EmptyState
-                    className=""
                     variant="full"
                   >
                     <div
                       className="pf-c-empty-state"
                     >
                       <EmptyStateIcon
-                        className=""
                         icon={[Function]}
                       >
                         <CubesIcon
                           aria-hidden="true"
                           className="pf-c-empty-state__icon"
                           color="currentColor"
+                          noVerticalAlign={false}
                           size="sm"
                           title={null}
                         >
@@ -157,14 +156,12 @@ exports[`General component should render correctly 1`] = `
                           No general settings found
                         </h5>
                       </Title>
-                      <EmptyStateBody
-                        className=""
-                      >
-                        <p
+                      <EmptyStateBody>
+                        <div
                           className="pf-c-empty-state__body"
                         >
                           There are currently no general settings.
-                        </p>
+                        </div>
                       </EmptyStateBody>
                     </div>
                   </EmptyState>

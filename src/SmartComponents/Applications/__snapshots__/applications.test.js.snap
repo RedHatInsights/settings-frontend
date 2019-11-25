@@ -88,7 +88,11 @@ Array [
                   class="pf-c-form__label"
                   for="email"
                 >
-                  Email
+                  <span
+                    class="pf-c-form__label-text"
+                  >
+                    Email
+                  </span>
                   <span
                     aria-hidden="true"
                     class="pf-c-form__label-required"
@@ -115,11 +119,11 @@ Array [
                 >
                   <input
                     aria-label=""
+                    aria-labelledby="hideSateliteSystems-on"
                     class="pf-c-switch__input"
                     id="hideSateliteSystems"
-                    labeloff="Hide Satelite systems"
                     name="hideSateliteSystems"
-                    type="checkbox"
+                    type="boolean"
                     value="false"
                   />
                   <span
@@ -128,12 +132,14 @@ Array [
                   <span
                     aria-hidden="true"
                     class="pf-c-switch__label pf-m-on"
+                    id="hideSateliteSystems-on"
                   >
                     Hide Satelite systems
                   </span>
                   <span
                     aria-hidden="true"
                     class="pf-c-switch__label pf-m-off"
+                    id="hideSateliteSystems-off"
                   >
                     Hide Satelite systems
                   </span>
