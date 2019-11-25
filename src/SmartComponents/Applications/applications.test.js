@@ -31,7 +31,7 @@ const mockState = {
                 name: 'hideSateliteSystems',
                 label: 'Hide Satelite systems',
                 component: componentTypes.SWITCH,
-                type: 'boolean',
+                type: 'checkbox',
                 initialValue: false
             }]
         }]
