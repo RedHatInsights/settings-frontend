@@ -4,11 +4,10 @@ exports[`component should render - multiple schema 1`] = `
 <Stack
   className=""
   component="div"
-  gutter={null}
+  gutter="md"
 >
   <StackItem
     className=""
-    gutter="md"
     isFilled={false}
     key="settings-form-0"
   >
@@ -68,7 +67,6 @@ exports[`component should render - multiple schema 1`] = `
   </StackItem>
   <StackItem
     className=""
-    gutter="md"
     isFilled={false}
     key="settings-form-1"
   >
@@ -133,7 +131,7 @@ exports[`component should render - no data 1`] = `
 <Stack
   className=""
   component="div"
-  gutter={null}
+  gutter="md"
 >
   <StackItem
     className=""
@@ -162,7 +160,7 @@ exports[`component should render - no schema 1`] = `
 <Stack
   className=""
   component="div"
-  gutter={null}
+  gutter="md"
 />
 `;
 
@@ -170,11 +168,10 @@ exports[`component should render - one schema 1`] = `
 <Stack
   className=""
   component="div"
-  gutter={null}
+  gutter="md"
 >
   <StackItem
     className=""
-    gutter="md"
     isFilled={false}
     key="settings-form-0"
   >
