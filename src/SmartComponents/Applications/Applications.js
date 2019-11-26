@@ -13,12 +13,7 @@ export const getAppId = ({ params } = {}) => {
 
 const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, configLoaded, loaded, schema }) => {
     const currApp = appsConfig && appsConfig[getAppId(match)] || getAppId(match);
-    let appName;
-    if (currApp.frontend) {
-        appName = currApp.frontend.title || currApp.title;
-    } else {
-        appName = currApp;
-    }
+    const appName = ((currApp.frontend && currApp.frontend.title) || currApp.title) || currApp;
 
     useEffect(() => {
         register(reducers);
