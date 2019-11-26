@@ -119,7 +119,7 @@ Array [
                 >
                   <input
                     aria-label=""
-                    aria-labelledby="hideSateliteSystems-on"
+                    aria-labelledby="hideSatelliteSystems-on"
                     class="pf-c-switch__input"
                     id="hideSatelliteSystems"
                     name="hideSatelliteSystems"
@@ -132,14 +132,14 @@ Array [
                   <span
                     aria-hidden="true"
                     class="pf-c-switch__label pf-m-on"
-                    id="hideSateliteSystems-on"
+                    id="hideSatelliteSystems-on"
                   >
                     Hide Satellite systems
                   </span>
                   <span
                     aria-hidden="true"
                     class="pf-c-switch__label pf-m-off"
-                    id="hideSateliteSystems-off"
+                    id="hideSatelliteSystems-off"
                   >
                     Hide Satellite systems
                   </span>
