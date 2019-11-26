@@ -1,12 +1,19 @@
 import {
     getSchema,
     loading,
-    defaultState
+    defaultState,
+    getConfig
 } from './reducers';
 
 describe('loading', () => {
     it('should return loading: true and empty schema', () => {
-        expect(loading()).toEqual({ loaded: false, schema: {}});
+        expect(loading()).toEqual({ loaded: false, schema: []});
+    });
+});
+
+describe('getConfig', () => {
+    it('should return appsConfig loaded', () => {
+        expect(getConfig({ test: 'test' }, { payload: 'test' })).toEqual({ configLoaded: true, test: 'test', appsConfig: 'test' });
     });
 });
 
@@ -18,6 +25,6 @@ describe('getSchema', () => {
 
 describe('defaultState', () => {
     it('should be loaded: false', () => {
-        expect(defaultState).toEqual({ loaded: false });
+        expect(defaultState).toEqual({ loaded: false, configLoaded: false });
     });
 });

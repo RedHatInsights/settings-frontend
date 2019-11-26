@@ -12,9 +12,11 @@ Array [
     >
        Applications Settings 
     </h1>
-    <p>
-      Settings for testapp
-    </p>
+    <div
+      class="ins-c-skeleton ins-c-skeleton__sm"
+    >
+       
+    </div>
   </section>,
   <section
     class="pf-l-page__main-section pf-c-page__main-section"
@@ -58,7 +60,7 @@ Array [
        Applications Settings 
     </h1>
     <p>
-      Settings for testapp
+      Settings for Test app
     </p>
   </section>,
   <section
@@ -186,9 +188,11 @@ Array [
     >
        Applications Settings 
     </h1>
-    <p>
-      Settings for testapp
-    </p>
+    <div
+      class="ins-c-skeleton ins-c-skeleton__sm"
+    >
+       
+    </div>
   </section>,
   <section
     class="pf-l-page__main-section pf-c-page__main-section"
