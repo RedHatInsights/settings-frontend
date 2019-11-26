@@ -72,6 +72,7 @@ Array [
     >
       <div
         class="pf-l-stack__item"
+        gutter="md"
       >
         <article
           class="pf-c-card"

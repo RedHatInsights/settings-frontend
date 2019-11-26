@@ -9,7 +9,7 @@ const RenderForms = ({ schemas, loaded, saveValues, ...props }) => (
     <Stack { ...props }>
         { loaded
             ?  schemas.map((schema, i) => (
-                <StackItem key={ `settings-form-${i}` }>
+                <StackItem key={ `settings-form-${i}` } gutter="md">
                     <Card>
                         <CardBody>
                             <FormRender
