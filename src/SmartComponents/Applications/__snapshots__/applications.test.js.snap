@@ -23,7 +23,7 @@ Array [
     page-type=""
   >
     <div
-      class="pf-l-stack"
+      class="pf-l-stack pf-m-gutter"
     >
       <div
         class="pf-l-stack__item"
@@ -68,7 +68,7 @@ Array [
     page-type=""
   >
     <div
-      class="pf-l-stack"
+      class="pf-l-stack pf-m-gutter"
     >
       <div
         class="pf-l-stack__item"
@@ -193,7 +193,7 @@ Array [
     page-type=""
   >
     <div
-      class="pf-l-stack"
+      class="pf-l-stack pf-m-gutter"
     >
       <div
         class="pf-l-stack__item"

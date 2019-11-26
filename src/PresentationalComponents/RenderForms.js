@@ -6,7 +6,7 @@ import { Stack, StackItem, Card, CardBody } from '@patternfly/react-core';
 import FormRender from '@data-driven-forms/react-form-renderer';
 
 const RenderForms = ({ schemas, loaded, saveValues, ...props }) => (
-    <Stack { ...props }>
+    <Stack { ...props } gutter="md">
         { loaded
             ?  schemas.map((schema, i) => (
                 <StackItem key={ `settings-form-${i}` }>
