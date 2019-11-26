@@ -2,25 +2,13 @@
 
 exports[`component should render - multiple schema 1`] = `
 <Stack
-  className=""
-  component="div"
   gutter="md"
 >
   <StackItem
-    className=""
-    isFilled={false}
     key="settings-form-0"
   >
-    <Card
-      className=""
-      component="article"
-      isHoverable={false}
-    >
-      <CardBody
-        className=""
-        component="div"
-        isFilled={true}
-      >
+    <Card>
+      <CardBody>
         <FormRenderer
           buttonClassName=""
           buttonsLabels={Object {}}
@@ -66,20 +54,10 @@ exports[`component should render - multiple schema 1`] = `
     </Card>
   </StackItem>
   <StackItem
-    className=""
-    isFilled={false}
     key="settings-form-1"
   >
-    <Card
-      className=""
-      component="article"
-      isHoverable={false}
-    >
-      <CardBody
-        className=""
-        component="div"
-        isFilled={true}
-      >
+    <Card>
+      <CardBody>
         <FormRenderer
           buttonClassName=""
           buttonsLabels={Object {}}
@@ -129,24 +107,11 @@ exports[`component should render - multiple schema 1`] = `
 
 exports[`component should render - no data 1`] = `
 <Stack
-  className=""
-  component="div"
   gutter="md"
 >
-  <StackItem
-    className=""
-    isFilled={false}
-  >
-    <Card
-      className=""
-      component="article"
-      isHoverable={false}
-    >
-      <CardBody
-        className=""
-        component="div"
-        isFilled={true}
-      >
+  <StackItem>
+    <Card>
+      <CardBody>
         <Skeleton
           size="lg"
         />
@@ -158,33 +123,19 @@ exports[`component should render - no data 1`] = `
 
 exports[`component should render - no schema 1`] = `
 <Stack
-  className=""
-  component="div"
   gutter="md"
 />
 `;
 
 exports[`component should render - one schema 1`] = `
 <Stack
-  className=""
-  component="div"
   gutter="md"
 >
   <StackItem
-    className=""
-    isFilled={false}
     key="settings-form-0"
   >
-    <Card
-      className=""
-      component="article"
-      isHoverable={false}
-    >
-      <CardBody
-        className=""
-        component="div"
-        isFilled={true}
-      >
+    <Card>
+      <CardBody>
         <FormRenderer
           buttonClassName=""
           buttonsLabels={Object {}}
