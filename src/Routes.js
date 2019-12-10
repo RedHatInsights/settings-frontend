@@ -29,13 +29,25 @@ InsightsRoute.propTypes = {
 export const Routes = (props) => {
     const path = props.childProps.location.pathname;
 
-    return (
-        <Switch>
+    const stableRoutes =
+        <React.Fragment>
+            <InsightsRoute exact path={ paths.applications } component={ Applications } rootClass='applications'/>
+            <Route render={ () => some(paths, p => p === path) ? null : (<Redirect to='/applications/insights'/>) }/>
+        </React.Fragment>;
+
+    const betaRoutes =
+        <React.Fragment>
             <InsightsRoute path={ paths.general } component={ General } rootClass='general'/>
             <InsightsRoute exact path={ paths.applications } component={ Applications } rootClass='applications'/>
-
-            { /* Finally, catch all unmatched routes */ }
             <Route render={ () => some(paths, p => p === path) ? null : (<Redirect to={ paths.general }/>) }/>
+        </React.Fragment>;
+
+    return (
+        <Switch>
+            { window.insights.chrome.isBeta()
+                ? { ...stableRoutes }
+                : { ...betaRoutes }
+            }
         </Switch>
     );
 };
