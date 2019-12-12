@@ -45,8 +45,8 @@ export const Routes = (props) => {
     return (
         <Switch>
             { window.insights.chrome.isBeta()
-                ? { ...stableRoutes }
-                : { ...betaRoutes }
+                ? { ...betaRoutes }
+                : { ...stableRoutes }
             }
         </Switch>
     );
