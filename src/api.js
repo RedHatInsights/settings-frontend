@@ -41,7 +41,7 @@ export const getApplicationSchema = async (application, apiVersion = 'v1') => {
 
 export const saveValues = async (application, values, apiVersion = 'v1') => {
     try {
-        return await instance.post(`/api/${application}/${apiVersion}/settings`, { values });
+        return await instance.post(`/api/${application}/${apiVersion}/settings/`, { ...values });
     } catch {
         return insights.chrome.auth.getUser().then(({ identity }) => mockSave(application, identity.user.username, values));
     }
