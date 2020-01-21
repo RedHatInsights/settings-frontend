@@ -2,6 +2,7 @@
 
 exports[`General component should render correctly 1`] = `
 <Skeleton
+  isDark={false}
   size="md"
 />
 `;

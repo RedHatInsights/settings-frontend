@@ -113,6 +113,7 @@ exports[`component should render - no data 1`] = `
     <Card>
       <CardBody>
         <Skeleton
+          isDark={false}
           size="lg"
         />
       </CardBody>
