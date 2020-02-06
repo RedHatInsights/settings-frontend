@@ -8,7 +8,17 @@ export const getSchema = (application, apiVersion) => ({
 
 export const saveValues = (application, values, apiVersion) => ({
     type: ACTION_TYPES.SAVE_VALUES,
-    payload: save(application, values, apiVersion)
+    payload: save(application, values, apiVersion),
+    meta: {
+        notifications: {
+            fulfilled: {
+                variant: 'success',
+                title: 'Application settings saved',
+                description: 'Settings for Red Hat Insights were replaced with new values.',
+                dismissable: true
+            }
+        }
+    }
 });
 
 export const getConfig = () => ({
