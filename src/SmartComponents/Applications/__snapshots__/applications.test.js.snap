@@ -10,7 +10,7 @@ Array [
       class="pf-c-title pf-m-2xl"
       widget-type="InsightsPageHeaderTitle"
     >
-       Applications Settings 
+       Applications settings 
     </h1>
     <div
       class="ins-c-skeleton ins-c-skeleton__sm"
@@ -57,7 +57,7 @@ Array [
       class="pf-c-title pf-m-2xl"
       widget-type="InsightsPageHeaderTitle"
     >
-       Applications Settings 
+       Applications settings 
     </h1>
     <p>
       Settings for Test app
@@ -186,7 +186,7 @@ Array [
       class="pf-c-title pf-m-2xl"
       widget-type="InsightsPageHeaderTitle"
     >
-       Applications Settings 
+       Applications settings 
     </h1>
     <div
       class="ins-c-skeleton ins-c-skeleton__sm"
