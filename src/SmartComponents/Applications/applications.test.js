@@ -8,7 +8,6 @@ import { notificationsMiddleware } from '@redhat-cloud-services/frontend-compone
 import { componentTypes, validatorTypes } from '@data-driven-forms/react-form-renderer';
 import Applications from './Applications';
 import { init } from '../../store';
-import { ACTION_TYPES } from '../../constants';
 
 const emptyState = {
     applicationsStore: {
