@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Skeleton, PageHeader, PageHeaderTitle, Main } from '@redhat-cloud-services/frontend-components';
 import { register } from '../../store';
 import reducers  from '../../store/reducers';
+import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
 import { getSchema, saveValues, getConfig } from '../../actions';
 import { RenderForms } from '../../PresentationalComponents';
 
@@ -17,6 +18,7 @@ const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, con
 
     useEffect(() => {
         register(reducers);
+        register({ notifications });
         if (!appsConfig) {
             getConfig();
         }
@@ -30,7 +32,7 @@ const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, con
     return (
         <React.Fragment>
             <PageHeader>
-                <PageHeaderTitle title='Applications Settings'/>
+                <PageHeaderTitle title='Applications settings'/>
                 {
                     configLoaded ?
                         <p>{ `Settings for ${ appName}` }</p> :

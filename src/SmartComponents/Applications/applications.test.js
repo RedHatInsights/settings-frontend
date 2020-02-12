@@ -4,6 +4,7 @@ import toJson from 'enzyme-to-json';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import promiseMiddleware from 'redux-promise-middleware';
+import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications';
 import { componentTypes, validatorTypes } from '@data-driven-forms/react-form-renderer';
 import Applications from './Applications';
 import { init } from '../../store';
@@ -52,7 +53,7 @@ init();
 
 describe('Applications', () => {
     beforeEach(() => {
-        mockStore = configureStore([ promiseMiddleware() ]);
+        mockStore = configureStore([ promiseMiddleware(), notificationsMiddleware() ]);
     });
 
     it('Render applications with no data', () => {
@@ -77,5 +78,33 @@ describe('Applications', () => {
             <Applications match={ { params: { id: 'testapp' }} } />
         </Provider>);
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should emit type-success notification on saving a form', () => {
+        const store = mockStore(mockState);
+        const wrapper = mount(
+            <Provider store={ store }>
+                <Applications appsConfig={ {} } match={ { params: { id: 'testapp' }} } />
+            </Provider>,
+        );
+        const input = wrapper.find('input#email');
+        input.getDOMNode().value = 'value';
+        input.simulate('change');
+        wrapper.update();
+        wrapper.find('.pf-m-primary').simulate('click');
+        const expectedPayload = [
+            expect.anything(),
+            expect.objectContaining({
+                meta: { notifications: {
+                    fulfilled: {
+                        description: 'Settings for Red Hat Insights were replaced with new values.',
+                        dismissable: true,
+                        title: 'Application settings saved',
+                        variant: 'success'
+                    }
+                }}
+            })
+        ];
+        expect(store.getActions()).toEqual(expectedPayload);
     });
 });
