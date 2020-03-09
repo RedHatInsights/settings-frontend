@@ -19,6 +19,7 @@ exports[`component should render - multiple schema 1`] = `
             Object {
               "checkbox": [Function],
               "date-picker": [Function],
+              "dual-list-select": [Function],
               "field-array": [Function],
               "plain-text": [Function],
               "radio": [Function],
@@ -64,6 +65,7 @@ exports[`component should render - multiple schema 1`] = `
             Object {
               "checkbox": [Function],
               "date-picker": [Function],
+              "dual-list-select": [Function],
               "field-array": [Function],
               "plain-text": [Function],
               "radio": [Function],
@@ -139,6 +141,7 @@ exports[`component should render - one schema 1`] = `
             Object {
               "checkbox": [Function],
               "date-picker": [Function],
+              "dual-list-select": [Function],
               "field-array": [Function],
               "plain-text": [Function],
               "radio": [Function],
