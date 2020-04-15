@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import asyncComponent from './Utilities/asyncComponent';
 
-const General = asyncComponent(() => import(/* webpackChunkName: "General" */ './SmartComponents/General/General'));
 const Applications = asyncComponent(() => import(/* webpackChunkName: "Applications" */ './SmartComponents/Applications/Applications'));
 
 const paths = {
-    general: '/general',
     applications: '/applications/:id'
 };
 
@@ -26,23 +24,11 @@ InsightsRoute.propTypes = {
 };
 
 export const Routes = () => {
-    const stableRoutes =
+    return (
         <Switch>
             <InsightsRoute exact path={ paths.applications } component={ Applications } rootClass='applications'/>
             <Route render={ () => <Redirect to="/applications/insights" /> } />
-        </Switch>;
-
-    const betaRoutes =
-        <Switch>
-            <InsightsRoute path={ paths.general } component={ General } rootClass='general'/>
-            <InsightsRoute exact path={ paths.applications } component={ Applications } rootClass='applications'/>
-            <Route render={ () => <Redirect to={ paths.general } /> } />
-        </Switch>;
-
-    return (
-        window.insights.chrome.isBeta()
-            ? { ...betaRoutes }
-            : { ...stableRoutes }
+        </Switch>
     );
 };
 

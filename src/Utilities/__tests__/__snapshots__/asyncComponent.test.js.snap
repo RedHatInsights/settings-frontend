@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`General component should render correctly 1`] = `
-<Skeleton
-  isDark={false}
-  size="md"
-/>
-`;
