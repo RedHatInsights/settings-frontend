@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Skeleton, PageHeader, PageHeaderTitle, Main } from '@redhat-cloud-services/frontend-components';
+import { PageHeader, PageHeaderTitle, Main } from '@redhat-cloud-services/frontend-components';
 import { register } from '../../store';
 import reducers  from '../../store/reducers';
 import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
@@ -15,6 +15,7 @@ export const getAppId = ({ params } = {}) => {
 const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, configLoaded, loaded, schema }) => {
     const currApp = appsConfig && appsConfig[getAppId(match)] || getAppId(match);
     const appName = ((currApp.frontend && currApp.frontend.title) || currApp.title) || currApp;
+    const [ user, setUser ] = useState(undefined);
 
     useEffect(() => {
         register(reducers);
@@ -22,6 +23,8 @@ const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, con
         if (!appsConfig) {
             getConfig();
         }
+
+        insights.chrome.auth.getUser().then((user) => setUser(user));
     }, []);
 
     useEffect(() => {
@@ -31,20 +34,22 @@ const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, con
     }, [ currApp ]);
     return (
         <React.Fragment>
-            <PageHeader>
-                <PageHeaderTitle title='Applications settings'/>
-                {
-                    configLoaded ?
-                        <p>{ `Settings for ${ appName}` }</p> :
-                        <Skeleton size='sm' />
-                }
-            </PageHeader>
+            { configLoaded &&
+                <PageHeader>
+                    <React.Fragment>
+                        <PageHeaderTitle title={ user && user.identity.user.is_org_admin ? 'Applications settings' : appName }/>
+                        <p>{ `Settings for ${appName}` }</p>
+                    </React.Fragment>
+                </PageHeader>
+            }
             <Main>
-                <RenderForms
-                    loaded={ loaded }
-                    schemas={ schema }
-                    saveValues={ (values) => saveValues(currApp?.api?.apiName || match.params.id, values, currApp.api, currApp.title) }
-                />
+                { user && user.identity.user.is_org_admin ?
+                    <RenderForms
+                        loaded={ loaded }
+                        schemas={ schema }
+                        saveValues={ (values) => saveValues(currApp?.api?.apiName || match.params.id, values, currApp.api, currApp.title) }
+                    />
+                    : <span>Not admin</span>}
             </Main>
         </React.Fragment>
     );
