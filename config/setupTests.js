@@ -30,6 +30,14 @@ global.insights.chrome = {
     init() {},
     identifyApp() {},
     auth: {
-        getUser: () => Promise.resolve(({ identity: { user: { username: 'user' }}}))
+        getUser: () => Promise.resolve({
+            identity: {
+                user: {
+                    username: 'user',
+                    // eslint-disable-next-line camelcase
+                    is_org_admin: true
+                }
+            }
+        })
     }
 };

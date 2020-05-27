@@ -7,6 +7,7 @@ import { createPromise } from 'redux-promise-middleware';
 import { notificationsMiddleware } from '@redhat-cloud-services/frontend-components-notifications';
 import { componentTypes, validatorTypes } from '@data-driven-forms/react-form-renderer';
 import Applications from './Applications';
+import { act } from 'react-dom/test-utils';
 import { init } from '../../store';
 
 const emptyState = {
@@ -56,12 +57,17 @@ describe('Applications', () => {
         mockStore = configureStore([ createPromise(), notificationsMiddleware() ]);
     });
 
-    it('Render applications with no data', () => {
+    it('Render applications with no data', async(done) => {
         const store = mockStore({});
-        const wrapper = render(<Provider store={ store }>
-            <Applications match={ { params: { id: 'testapp' }} }/>
-        </Provider>);
+        let wrapper;
+        await act(async () => {
+            wrapper = mount(<Provider store={ store }>
+                <Applications match={ { params: { id: 'testapp' }} }/>
+            </Provider>);
+        });
+        wrapper.update();
         expect(toJson(wrapper)).toMatchSnapshot();
+        done();
     });
 
     it('Render applications with emptyState', () => {
@@ -72,21 +78,30 @@ describe('Applications', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('Render applications with mockState', () => {
+    it('Render applications with mockState', async(done) => {
         const store = mockStore(mockState);
-        const wrapper = render(<Provider store={ store }>
-            <Applications match={ { params: { id: 'testapp' }} } />
-        </Provider>);
+        let wrapper;
+        await act(async () => {
+            wrapper = mount(<Provider store={ store }>
+                <Applications match={ { params: { id: 'testapp' }} } />
+            </Provider>);
+        });
+        wrapper.update();
         expect(toJson(wrapper)).toMatchSnapshot();
+        done();
     });
 
-    it('should emit type-success notification on saving a form', () => {
+    it('should emit type-success notification on saving a form', async(done) => {
         const store = mockStore(mockState);
-        const wrapper = mount(
-            <Provider store={ store }>
-                <Applications appsConfig={ {} } match={ { params: { id: 'testapp' }} } />
-            </Provider>
-        );
+        let wrapper;
+        await act(async () => {
+            wrapper = mount(
+                <Provider store={ store }>
+                    <Applications appsConfig={ {} } match={ { params: { id: 'testapp' }} } />
+                </Provider>
+            );
+        });
+        wrapper.update();
         const input = wrapper.find('input#email');
         input.getDOMNode().value = 'value';
         input.simulate('change');
@@ -107,5 +122,6 @@ describe('Applications', () => {
         ];
         wrapper.update();
         expect(store.getActions()).toEqual(expectedPayload);
+        done();
     });
 });

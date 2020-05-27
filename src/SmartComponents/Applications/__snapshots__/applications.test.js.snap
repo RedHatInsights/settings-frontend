@@ -1,225 +1,306 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Applications Render applications with emptyState 1`] = `
-Array [
-  <section
-    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-    widget-type="InsightsPageHeader"
+<section
+  class="pf-l-page__main-section pf-c-page__main-section"
+  page-type=""
+>
+  <div
+    class="pf-c-empty-state ins-c-not-authorized"
   >
-    <h1
-      class="pf-c-title pf-m-2xl"
-      widget-type="InsightsPageHeaderTitle"
+    <svg
+      aria-hidden="true"
+      class="pf-c-empty-state__icon"
+      fill="currentColor"
+      height="1em"
+      role="img"
+      style="vertical-align:-0.125em"
+      viewBox="0 0 448 512"
+      width="1em"
     >
-       Applications settings 
-    </h1>
+      <path
+        d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+        transform=""
+      />
+    </svg>
+    <h5
+      class="pf-c-title pf-m-lg"
+    >
+       You do not have access to testapp
+    </h5>
     <div
-      class="ins-c-skeleton ins-c-skeleton__sm"
+      class="pf-c-empty-state__body"
     >
-       
+      Contact your organization administrator(s) for more information.
     </div>
-  </section>,
-  <section
-    class="pf-l-page__main-section pf-c-page__main-section"
-    page-type=""
-  >
-    <div
-      class="pf-l-stack pf-m-gutter"
+    <a
+      aria-disabled="false"
+      class="pf-c-button pf-m-primary"
+      href="."
     >
-      <div
-        class="pf-l-stack__item"
-      >
-        <article
-          class="pf-c-card"
-        >
-          <div
-            class="pf-c-card__body"
-          >
-            <div
-              class="ins-c-skeleton ins-c-skeleton__lg"
-            >
-               
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>,
-]
+      Go to landing page
+    </a>
+  </div>
+</section>
 `;
 
 exports[`Applications Render applications with mockState 1`] = `
-Array [
-  <section
-    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-    widget-type="InsightsPageHeader"
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Applications)
+    match={
+      Object {
+        "params": Object {
+          "id": "testapp",
+        },
+      }
+    }
   >
-    <h1
-      class="pf-c-title pf-m-2xl"
-      widget-type="InsightsPageHeaderTitle"
+    <Applications
+      appsConfig={
+        Object {
+          "testapp": Object {
+            "frontend": Object {
+              "title": "Test app",
+            },
+          },
+        }
+      }
+      configLoaded={true}
+      getConfig={[Function]}
+      getSchema={[Function]}
+      loaded={true}
+      match={
+        Object {
+          "params": Object {
+            "id": "testapp",
+          },
+        }
+      }
+      saveValues={[Function]}
+      schema={
+        Array [
+          Object {
+            "fields": Array [
+              Object {
+                "component": "text-field",
+                "initialValue": "",
+                "isRequired": true,
+                "label": "Email",
+                "name": "email",
+                "validate": Array [
+                  Object {
+                    "type": "required-validator",
+                  },
+                ],
+              },
+              Object {
+                "component": "switch-field",
+                "initialValue": false,
+                "label": "Hide Satellite systems",
+                "name": "hideSatelliteSystems",
+                "type": "checkbox",
+              },
+            ],
+          },
+        ]
+      }
     >
-       Applications settings 
-    </h1>
-    <p>
-      Settings for Test app
-    </p>
-  </section>,
-  <section
-    class="pf-l-page__main-section pf-c-page__main-section"
-    page-type=""
-  >
-    <div
-      class="pf-l-stack pf-m-gutter"
-    >
-      <div
-        class="pf-l-stack__item"
-      >
-        <article
-          class="pf-c-card"
+      <PageHeader>
+        <section
+          className="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+          widget-type="InsightsPageHeader"
         >
-          <div
-            class="pf-c-card__body"
+          <PageHeaderTitle
+            title="Test app"
           >
-            <form
-              class="pf-c-form"
-              novalidate=""
+            <Title
+              className=""
+              size="2xl"
+              widget-type="InsightsPageHeaderTitle"
             >
-              <div
-                class="pf-c-form__group"
+              <h1
+                className="pf-c-title pf-m-2xl"
+                widget-type="InsightsPageHeaderTitle"
               >
-                <label
-                  class="pf-c-form__label"
-                  for="email"
-                >
-                  <span
-                    class="pf-c-form__label-text"
-                  >
-                    Email
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="pf-c-form__label-required"
-                  >
-                    *
-                  </span>
-                </label>
-                <input
-                  aria-invalid="false"
-                  class="pf-c-form-control"
-                  id="email"
-                  label="Email"
-                  name="email"
-                  type="text"
-                  value=""
-                />
-              </div>
-              <div
-                class="pf-c-form__group"
-              >
-                <label
-                  class="pf-c-switch"
-                  for="hideSatelliteSystems"
-                >
-                  <input
-                    aria-label=""
-                    aria-labelledby="hideSatelliteSystems-on"
-                    class="pf-c-switch__input"
-                    id="hideSatelliteSystems"
-                    name="hideSatelliteSystems"
-                    type="checkbox"
-                    value="false"
-                  />
-                  <span
-                    class="pf-c-switch__toggle"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="pf-c-switch__label pf-m-on"
-                    id="hideSatelliteSystems-on"
-                  >
-                    Hide Satellite systems
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="pf-c-switch__label pf-m-off"
-                    id="hideSatelliteSystems-off"
-                  >
-                    Hide Satellite systems
-                  </span>
-                </label>
-              </div>
-              <div
-                class="pf-c-form__group pf-m-action"
+                 
+                Test app
+                 
+              </h1>
+            </Title>
+          </PageHeaderTitle>
+        </section>
+      </PageHeader>
+      <Connect(Main)>
+        <Main>
+          <section
+            className="pf-l-page__main-section pf-c-page__main-section"
+            page-type=""
+          >
+            <NotAuthorized
+              serviceName="Test app"
+            >
+              <EmptyState
+                className="ins-c-not-authorized"
+                variant="full"
               >
                 <div
-                  class="pf-c-form__actions"
+                  className="pf-c-empty-state ins-c-not-authorized"
                 >
-                  <button
-                    class="pf-c-button pf-m-primary"
-                    type="submit"
+                  <EmptyStateIcon
+                    icon={[Function]}
                   >
-                    Submit
-                  </button>
-                  <button
-                    class="pf-c-button pf-m-secondary"
-                    disabled=""
-                    type="button"
+                    <LockIcon
+                      aria-hidden="true"
+                      className="pf-c-empty-state__icon"
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                      title={null}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-labelledby={null}
+                        className="pf-c-empty-state__icon"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
+                          }
+                        }
+                        viewBox="0 0 448 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                          transform=""
+                        />
+                      </svg>
+                    </LockIcon>
+                  </EmptyStateIcon>
+                  <Title
+                    headingLevel="h5"
+                    size="lg"
                   >
-                    Reset
-                  </button>
+                    <h5
+                      className="pf-c-title pf-m-lg"
+                    >
+                       You do not have access to 
+                      Test app
+                    </h5>
+                  </Title>
+                  <EmptyStateBody>
+                    <div
+                      className="pf-c-empty-state__body"
+                    >
+                      Contact your organization administrator(s) for more information.
+                    </div>
+                  </EmptyStateBody>
+                  <Component
+                    component="a"
+                    href="."
+                    variant="primary"
+                  >
+                    <ComponentWithOuia
+                      component={[Function]}
+                      componentProps={
+                        Object {
+                          "children": "Go to landing page",
+                          "component": "a",
+                          "href": ".",
+                          "variant": "primary",
+                        }
+                      }
+                      consumerContext={null}
+                    >
+                      <Button
+                        component="a"
+                        href="."
+                        ouiaContext={
+                          Object {
+                            "isOuia": false,
+                            "ouiaId": null,
+                          }
+                        }
+                        variant="primary"
+                      >
+                        <a
+                          aria-disabled={false}
+                          aria-label={null}
+                          className="pf-c-button pf-m-primary"
+                          disabled={null}
+                          href="."
+                          tabIndex={null}
+                          type={null}
+                        >
+                          Go to landing page
+                        </a>
+                      </Button>
+                    </ComponentWithOuia>
+                  </Component>
                 </div>
-              </div>
-            </form>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>,
-]
+              </EmptyState>
+            </NotAuthorized>
+          </section>
+        </Main>
+      </Connect(Main)>
+    </Applications>
+  </Connect(Applications)>
+</Provider>
 `;
 
 exports[`Applications Render applications with no data 1`] = `
-Array [
-  <section
-    class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
-    widget-type="InsightsPageHeader"
+<section
+  class="pf-l-page__main-section pf-c-page__main-section"
+  page-type=""
+>
+  <div
+    class="pf-c-empty-state ins-c-not-authorized"
   >
-    <h1
-      class="pf-c-title pf-m-2xl"
-      widget-type="InsightsPageHeaderTitle"
+    <svg
+      aria-hidden="true"
+      class="pf-c-empty-state__icon"
+      fill="currentColor"
+      height="1em"
+      role="img"
+      style="vertical-align:-0.125em"
+      viewBox="0 0 448 512"
+      width="1em"
     >
-       Applications settings 
-    </h1>
+      <path
+        d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+        transform=""
+      />
+    </svg>
+    <h5
+      class="pf-c-title pf-m-lg"
+    >
+       You do not have access to testapp
+    </h5>
     <div
-      class="ins-c-skeleton ins-c-skeleton__sm"
+      class="pf-c-empty-state__body"
     >
-       
+      Contact your organization administrator(s) for more information.
     </div>
-  </section>,
-  <section
-    class="pf-l-page__main-section pf-c-page__main-section"
-    page-type=""
-  >
-    <div
-      class="pf-l-stack pf-m-gutter"
+    <a
+      aria-disabled="false"
+      class="pf-c-button pf-m-primary"
+      href="."
     >
-      <div
-        class="pf-l-stack__item"
-      >
-        <article
-          class="pf-c-card"
-        >
-          <div
-            class="pf-c-card__body"
-          >
-            <div
-              class="ins-c-skeleton ins-c-skeleton__lg"
-            >
-               
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>,
-]
+      Go to landing page
+    </a>
+  </div>
+</section>
 `;
