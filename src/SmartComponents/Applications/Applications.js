@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { PageHeader, PageHeaderTitle, Main } from '@redhat-cloud-services/frontend-components';
+import { PageHeader, PageHeaderTitle, Main, NotAuthorized } from '@redhat-cloud-services/frontend-components';
 import { register } from '../../store';
 import reducers  from '../../store/reducers';
 import { notifications } from '@redhat-cloud-services/frontend-components-notifications';
@@ -15,7 +15,7 @@ export const getAppId = ({ params } = {}) => {
 const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, configLoaded, loaded, schema }) => {
     const currApp = appsConfig && appsConfig[getAppId(match)] || getAppId(match);
     const appName = ((currApp.frontend && currApp.frontend.title) || currApp.title) || currApp;
-    const [ user, setUser ] = useState(undefined);
+    const [ isOrgAmin, setIsOrgAdmin ] = useState(false);
 
     useEffect(() => {
         register(reducers);
@@ -24,7 +24,7 @@ const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, con
             getConfig();
         }
 
-        insights.chrome.auth.getUser().then((user) => setUser(user));
+        insights.chrome.auth.getUser().then((user) => setIsOrgAdmin(!user.identity.user.is_org_admin));
     }, []);
 
     useEffect(() => {
@@ -32,24 +32,26 @@ const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, con
             getSchema(currApp?.api?.apiName || match.params.id, currApp.api);
         }
     }, [ currApp ]);
+
     return (
         <React.Fragment>
             { configLoaded &&
                 <PageHeader>
                     <React.Fragment>
-                        <PageHeaderTitle title={ user && user.identity.user.is_org_admin ? 'Applications settings' : appName }/>
-                        <p>{ `Settings for ${appName}` }</p>
+                        <PageHeaderTitle title={ isOrgAmin ? 'Applications settings' : appName }/>
+                        { isOrgAmin && <p>{ `Settings for ${appName}` }</p>}
                     </React.Fragment>
                 </PageHeader>
             }
             <Main>
-                { user && user.identity.user.is_org_admin ?
+                { isOrgAmin ?
                     <RenderForms
                         loaded={ loaded }
                         schemas={ schema }
                         saveValues={ (values) => saveValues(currApp?.api?.apiName || match.params.id, values, currApp.api, currApp.title) }
                     />
-                    : <span>Not admin</span>}
+                    : <NotAuthorized serviceName={ appName }></NotAuthorized>
+                }
             </Main>
         </React.Fragment>
     );
