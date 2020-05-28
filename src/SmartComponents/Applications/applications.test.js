@@ -57,17 +57,13 @@ describe('Applications', () => {
         mockStore = configureStore([ createPromise(), notificationsMiddleware() ]);
     });
 
-    it('Render applications with no data', async(done) => {
+    it('Render applications with no data', () => {
         const store = mockStore({});
-        let wrapper;
-        await act(async () => {
-            wrapper = mount(<Provider store={ store }>
-                <Applications match={ { params: { id: 'testapp' }} }/>
-            </Provider>);
-        });
+        const wrapper = mount(<Provider store={ store }>
+            <Applications match={ { params: { id: 'testapp' }} }/>
+        </Provider>);
         wrapper.update();
         expect(toJson(wrapper)).toMatchSnapshot();
-        done();
     });
 
     it('Render applications with emptyState', () => {
@@ -78,50 +74,49 @@ describe('Applications', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('Render applications with mockState', async(done) => {
+    it('Render applications with mockState', () => {
         const store = mockStore(mockState);
-        let wrapper;
-        await act(async () => {
-            wrapper = mount(<Provider store={ store }>
-                <Applications match={ { params: { id: 'testapp' }} } />
-            </Provider>);
-        });
+        const wrapper = mount(<Provider store={ store }>
+            <Applications match={ { params: { id: 'testapp' }} } />
+        </Provider>);
         wrapper.update();
         expect(toJson(wrapper)).toMatchSnapshot();
-        done();
     });
 
-    it('should emit type-success notification on saving a form', async(done) => {
+    it('should emit type-success notification on saving a form', () => {
         const store = mockStore(mockState);
         let wrapper;
-        await act(async () => {
+        act(async () => {
             wrapper = mount(
                 <Provider store={ store }>
                     <Applications appsConfig={ {} } match={ { params: { id: 'testapp' }} } />
                 </Provider>
             );
+
+            wrapper.update();
         });
-        wrapper.update();
-        const input = wrapper.find('input#email');
-        input.getDOMNode().value = 'value';
-        input.simulate('change');
-        wrapper.update();
-        wrapper.find('form.pf-c-form').simulate('submit');
-        const expectedPayload = [
-            expect.anything(),
-            expect.objectContaining({
-                meta: { notifications: {
-                    fulfilled: {
-                        description: 'Settings for Red Hat Insights were replaced with new values.',
-                        dismissable: true,
-                        title: 'Application settings saved',
-                        variant: 'success'
-                    }
-                }}
-            })
-        ];
-        wrapper.update();
-        expect(store.getActions()).toEqual(expectedPayload);
-        done();
+        setImmediate(async(done) => {
+            const input = wrapper.find('input#email');
+            input.getDOMNode().value = 'value';
+            input.simulate('change');
+            wrapper.update();
+            wrapper.find('form.pf-c-form').simulate('submit');
+            const expectedPayload = [
+                expect.anything(),
+                expect.objectContaining({
+                    meta: { notifications: {
+                        fulfilled: {
+                            description: 'Settings for Red Hat Insights were replaced with new values.',
+                            dismissable: true,
+                            title: 'Application settings saved',
+                            variant: 'success'
+                        }
+                    }}
+                })
+            ];
+            wrapper.update();
+            expect(store.getActions()).toEqual(expectedPayload);
+            done();
+        });
     });
 });
