@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Routes } from './Routes';
-import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications';
+import { NotificationsPortal } from '@redhat-cloud-services/frontend-components-notifications/';
 
 import './App.scss';
 

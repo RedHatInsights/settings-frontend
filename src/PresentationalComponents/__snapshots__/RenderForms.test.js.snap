@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component should render - multiple schema 1`] = `
-<Stack
+<Component
   gutter="md"
 >
-  <StackItem
+  <Component
     key="settings-form-0"
   >
-    <Card>
-      <CardBody>
+    <Component>
+      <Component>
         <FormRenderer
           FormTemplate={[Function]}
           clearOnUnmount={false}
@@ -52,14 +52,14 @@ exports[`component should render - multiple schema 1`] = `
             }
           }
         />
-      </CardBody>
-    </Card>
-  </StackItem>
-  <StackItem
+      </Component>
+    </Component>
+  </Component>
+  <Component
     key="settings-form-1"
   >
-    <Card>
-      <CardBody>
+    <Component>
+      <Component>
         <FormRenderer
           FormTemplate={[Function]}
           clearOnUnmount={false}
@@ -103,44 +103,44 @@ exports[`component should render - multiple schema 1`] = `
             }
           }
         />
-      </CardBody>
-    </Card>
-  </StackItem>
-</Stack>
+      </Component>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`component should render - no data 1`] = `
-<Stack
+<Component
   gutter="md"
 >
-  <StackItem>
-    <Card>
-      <CardBody>
+  <Component>
+    <Component>
+      <Component>
         <Skeleton
           isDark={false}
           size="lg"
         />
-      </CardBody>
-    </Card>
-  </StackItem>
-</Stack>
+      </Component>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`component should render - no schema 1`] = `
-<Stack
+<Component
   gutter="md"
 />
 `;
 
 exports[`component should render - one schema 1`] = `
-<Stack
+<Component
   gutter="md"
 >
-  <StackItem
+  <Component
     key="settings-form-0"
   >
-    <Card>
-      <CardBody>
+    <Component>
+      <Component>
         <FormRenderer
           FormTemplate={[Function]}
           clearOnUnmount={false}
@@ -184,8 +184,8 @@ exports[`component should render - one schema 1`] = `
             }
           }
         />
-      </CardBody>
-    </Card>
-  </StackItem>
-</Stack>
+      </Component>
+    </Component>
+  </Component>
+</Component>
 `;
