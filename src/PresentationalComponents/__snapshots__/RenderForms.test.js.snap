@@ -41,6 +41,7 @@ exports[`component should render - multiple schema 1`] = `
           initialValues={Object {}}
           onSubmit={[Function]}
           schema={Object {}}
+          submitLabel="Save"
           validatorMapper={
             Object {
               "exact-length-validator": [Function],
@@ -93,6 +94,7 @@ exports[`component should render - multiple schema 1`] = `
           initialValues={Object {}}
           onSubmit={[Function]}
           schema={Object {}}
+          submitLabel="Save"
           validatorMapper={
             Object {
               "exact-length-validator": [Function],
@@ -175,6 +177,7 @@ exports[`component should render - one schema 1`] = `
           initialValues={Object {}}
           onSubmit={[Function]}
           schema={Object {}}
+          submitLabel="Save"
           validatorMapper={
             Object {
               "exact-length-validator": [Function],

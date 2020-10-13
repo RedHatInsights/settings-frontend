@@ -46,6 +46,7 @@ const RenderForms = ({ schemas, loaded, saveValues, ...props }) => (
                                 componentMapper={ componentMapperExtended }
                                 FormTemplate={ FormTemplateWrapper }
                                 schema={ schema }
+                                submitLabel="Save"
                                 onSubmit={ saveValues }
                                 validatorMapper={ validatorMapperBridge }
                             />
