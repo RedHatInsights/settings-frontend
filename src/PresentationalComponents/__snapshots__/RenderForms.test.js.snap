@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component should render - multiple schema 1`] = `
-<Component
+<Stack
   gutter="md"
 >
-  <Component
+  <StackItem
     key="settings-form-0"
   >
-    <Component>
-      <Component>
+    <Card>
+      <CardBody>
         <FormRenderer
           FormTemplate={[Function]}
           clearOnUnmount={false}
@@ -54,14 +54,14 @@ exports[`component should render - multiple schema 1`] = `
             }
           }
         />
-      </Component>
-    </Component>
-  </Component>
-  <Component
+      </CardBody>
+    </Card>
+  </StackItem>
+  <StackItem
     key="settings-form-1"
   >
-    <Component>
-      <Component>
+    <Card>
+      <CardBody>
         <FormRenderer
           FormTemplate={[Function]}
           clearOnUnmount={false}
@@ -107,44 +107,44 @@ exports[`component should render - multiple schema 1`] = `
             }
           }
         />
-      </Component>
-    </Component>
-  </Component>
-</Component>
+      </CardBody>
+    </Card>
+  </StackItem>
+</Stack>
 `;
 
 exports[`component should render - no data 1`] = `
-<Component
+<Stack
   gutter="md"
 >
-  <Component>
-    <Component>
-      <Component>
+  <StackItem>
+    <Card>
+      <CardBody>
         <Skeleton
           isDark={false}
           size="lg"
         />
-      </Component>
-    </Component>
-  </Component>
-</Component>
+      </CardBody>
+    </Card>
+  </StackItem>
+</Stack>
 `;
 
 exports[`component should render - no schema 1`] = `
-<Component
+<Stack
   gutter="md"
 />
 `;
 
 exports[`component should render - one schema 1`] = `
-<Component
+<Stack
   gutter="md"
 >
-  <Component
+  <StackItem
     key="settings-form-0"
   >
-    <Component>
-      <Component>
+    <Card>
+      <CardBody>
         <FormRenderer
           FormTemplate={[Function]}
           clearOnUnmount={false}
@@ -190,8 +190,8 @@ exports[`component should render - one schema 1`] = `
             }
           }
         />
-      </Component>
-    </Component>
-  </Component>
-</Component>
+      </CardBody>
+    </Card>
+  </StackItem>
+</Stack>
 `;
