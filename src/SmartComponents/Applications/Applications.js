@@ -16,7 +16,7 @@ export const getAppId = ({ params } = {}) => {
 const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, configLoaded, loaded, schema }) => {
     const currApp = appsConfig && appsConfig[getAppId(match)] || getAppId(match);
     const appName = ((currApp.frontend && currApp.frontend.title) || currApp.title) || currApp;
-    const [ isOrgAdmin, setIsOrgAdmin ] = useState(false);
+    const [ isOrgAdmin, setIsOrgAdmin ] = useState(undefined);
 
     useEffect(() => {
         register(reducers);
@@ -45,16 +45,19 @@ const Applications = ({ appsConfig, saveValues, match, getSchema, getConfig, con
                     )}
                 </React.Fragment>
             </PageHeader>
-            <Main>
-                { isOrgAdmin ?
-                    <RenderForms
-                        loaded={ loaded }
-                        schemas={ schema }
-                        saveValues={ (values) => saveValues(currApp?.api?.apiName || match.params.id, values, currApp.api, currApp.title) }
-                    />
-                    : <NotAuthorized serviceName={ startCase(appName) }></NotAuthorized>
-                }
-            </Main>
+            {typeof isOrgAdmin === 'boolean' && (
+                <Main>
+                    { isOrgAdmin ?
+                        <RenderForms
+                            loaded={ loaded }
+                            schemas={ schema }
+                            saveValues={ (values) => saveValues(currApp?.api?.apiName || match.params.id, values, currApp.api, currApp.title) }
+                        />
+                        : <NotAuthorized serviceName={ startCase(appName) } />
+                    }
+                </Main>
+
+            )}
         </React.Fragment>
     );
 };
