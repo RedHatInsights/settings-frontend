@@ -2,7 +2,7 @@
 
 exports[`component should render - multiple schema 1`] = `
 <Stack
-  gutter="md"
+  hasGutter={true}
 >
   <StackItem
     key="settings-form-0"
@@ -115,7 +115,7 @@ exports[`component should render - multiple schema 1`] = `
 
 exports[`component should render - no data 1`] = `
 <Stack
-  gutter="md"
+  hasGutter={true}
 >
   <StackItem>
     <Card>
@@ -132,13 +132,13 @@ exports[`component should render - no data 1`] = `
 
 exports[`component should render - no schema 1`] = `
 <Stack
-  gutter="md"
+  hasGutter={true}
 />
 `;
 
 exports[`component should render - one schema 1`] = `
 <Stack
-  gutter="md"
+  hasGutter={true}
 >
   <StackItem
     key="settings-form-0"
