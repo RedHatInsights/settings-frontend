@@ -12,7 +12,7 @@ export function init (...middleware) {
     registry = new ReducerRegistry({}, [
         promiseMiddleware,
         notificationsMiddleware(),
-        ...middleware
+        ...middleware.filter(item => typeof item !== 'undefined')
     ]);
 
     return registry;
