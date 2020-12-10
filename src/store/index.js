@@ -4,24 +4,24 @@ import { notificationsMiddleware } from '@redhat-cloud-services/frontend-compone
 
 let registry;
 
-export function init (...middleware) {
-    if (registry) {
-        throw new Error('store already initialized');
-    }
+export function init(...middleware) {
+  if (registry) {
+    throw new Error('store already initialized');
+  }
 
-    registry = new ReducerRegistry({}, [
-        promiseMiddleware,
-        notificationsMiddleware(),
-        ...middleware
-    ]);
+  registry = new ReducerRegistry({}, [
+    promiseMiddleware,
+    notificationsMiddleware(),
+    ...middleware.filter((item) => typeof item !== 'undefined'),
+  ]);
 
-    return registry;
+  return registry;
 }
 
-export function getStore () {
-    return registry.getStore();
+export function getStore() {
+  return registry.getStore();
 }
 
-export function register (...args) {
-    return registry.register(...args);
+export function register(...args) {
+  return registry.register(...args);
 }
