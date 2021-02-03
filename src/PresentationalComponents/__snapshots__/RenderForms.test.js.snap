@@ -17,8 +17,17 @@ exports[`component should render - multiple schema 1`] = `
               "checkbox": [Function],
               "date-picker": [Function],
               "dual-list-select": Object {
+                "availableOptionsActions": Array [
+                  <DualListSortButton
+                    position="left"
+                  />,
+                ],
+                "chosenOptionsActions": Array [
+                  <DualListSortButton
+                    position="right"
+                  />,
+                ],
                 "component": [Function],
-                "renderStatus": [Function],
               },
               "field-array": [Function],
               "plain-text": [Function],
@@ -70,8 +79,17 @@ exports[`component should render - multiple schema 1`] = `
               "checkbox": [Function],
               "date-picker": [Function],
               "dual-list-select": Object {
+                "availableOptionsActions": Array [
+                  <DualListSortButton
+                    position="left"
+                  />,
+                ],
+                "chosenOptionsActions": Array [
+                  <DualListSortButton
+                    position="right"
+                  />,
+                ],
                 "component": [Function],
-                "renderStatus": [Function],
               },
               "field-array": [Function],
               "plain-text": [Function],
@@ -153,8 +171,17 @@ exports[`component should render - one schema 1`] = `
               "checkbox": [Function],
               "date-picker": [Function],
               "dual-list-select": Object {
+                "availableOptionsActions": Array [
+                  <DualListSortButton
+                    position="left"
+                  />,
+                ],
+                "chosenOptionsActions": Array [
+                  <DualListSortButton
+                    position="right"
+                  />,
+                ],
                 "component": [Function],
-                "renderStatus": [Function],
               },
               "field-array": [Function],
               "plain-text": [Function],

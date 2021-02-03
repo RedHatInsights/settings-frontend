@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormTemplate from '@data-driven-forms/pf4-component-mapper/dist/cjs/form-template';
 import componentMapper from '@data-driven-forms/pf4-component-mapper/dist/cjs/component-mapper';
+import DualListSortButton from '@data-driven-forms/pf4-component-mapper/dist/cjs/dual-list-sort-button';
 import { Skeleton } from '@redhat-cloud-services/frontend-components';
 import { Stack, StackItem, Card, CardBody } from '@patternfly/react-core';
 import { PlainTextWithLinks } from './PlainTextWithLinks';
@@ -19,8 +20,10 @@ const componentMapperExtended = {
   'plain-text-with-links': PlainTextWithLinks,
   [componentTypes.DUAL_LIST_SELECT]: {
     component: componentMapper[componentTypes.DUAL_LIST_SELECT],
-    renderStatus: ({ selected, options }) =>
-      `${selected} of ${options} selected`,
+    availableOptionsActions: [
+      <DualListSortButton position="left" key="sort" />,
+    ],
+    chosenOptionsActions: [<DualListSortButton position="right" key="sort" />],
   },
 };
 
