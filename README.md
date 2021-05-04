@@ -79,7 +79,7 @@ Example:
 * Run `npm run start:beta`
 
 #### Using [insights-proxy](https://github.com/RedHatInsights/insights-proxy)
-* Edit `dev.webpack.config.js` to remove or set `useProxy` to false 
+* Edit `dev.webpack.config.js` to remove `useProxy & appUrl & proxyVerbose` from the config 
 
  Example:
 ``` javascript
@@ -88,9 +88,6 @@ Example:
     debug: true,
     useFileHash: false,
     deployment: process.env.BETA ? 'beta/apps' : 'apps',
-    useProxy: false,
-    appUrl: `/beta/settings/applications`,
-    proxyVerbose: true,
   });
 ```
 
