@@ -53,6 +53,48 @@ There is a [live editor](https://data-driven-forms.org/live-editor) where you ca
 The `POST` endpoint will receive the submitted values
 
 ## Dev Instructions
-
 * `npm install`
-* Run both `npm run start` & `SPANDX_CONFIG=path/to/settings-frontend/profiles/local-frontend.js sh path/to/insights-proxy/scripts/run.sh`
+
+### Proxy/Routing
+#### Using insights [frontend-components](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config)
+* Edit `dev.webpack.config.js` to add route for local backend API server(If needed)
+  
+Example: 
+``` javascript
+  const { config: webpackConfig, plugins } = config({
+    rootFolder: resolve(__dirname, '../'),
+    debug: true,
+    useFileHash: false,
+    deployment: process.env.BETA ? 'beta/apps' : 'apps',
+    useProxy: true,
+    appUrl: `/beta/settings/applications`,
+    proxyVerbose: true,
+    routes: {
+        '/api/cost-management/v1/': { host: 'http://localhost:8000' },
+    },
+  });
+```
+
+
+* Run `npm run start:beta`
+
+#### Using [insights-proxy](https://github.com/RedHatInsights/insights-proxy)
+* Edit `dev.webpack.config.js` to remove or set `useProxy` to false 
+
+ Example:
+``` javascript
+  const { config: webpackConfig, plugins } = config({
+    rootFolder: resolve(__dirname, '../'),
+    debug: true,
+    useFileHash: false,
+    deployment: process.env.BETA ? 'beta/apps' : 'apps',
+    useProxy: false,
+    appUrl: `/beta/settings/applications`,
+    proxyVerbose: true,
+  });
+```
+
+* edit `settings-frontend/profiles/local-frontend-and-api.js`
+  (changing the port and path to local proxy server, if needed)
+* Run `npm run start`
+* Run `SPANDX_CONFIG=path/to/settings-frontend/profiles/local-frontend-and-api.js sh path/to/insights-proxy/scripts/run.sh`
