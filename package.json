@@ -12,7 +12,7 @@
     "@patternfly/react-table": "^4.29.0",
     "@redhat-cloud-services/frontend-components": "3.1.10",
     "@redhat-cloud-services/frontend-components-notifications": "^3.1.0",
-    "@redhat-cloud-services/frontend-components-utilities": "3.1.2",
+    "@redhat-cloud-services/frontend-components-utilities": "3.2.3",
     "babel-plugin-transform-imports": "^2.0.0",
     "classnames": "^2.3.1",
     "js-yaml": "^4.1.0",
