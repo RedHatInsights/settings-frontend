@@ -61,35 +61,33 @@ The `POST` endpoint will receive the submitted values
   
 Example: 
 ``` javascript
-  const { config: webpackConfig, plugins } = config({
-    rootFolder: resolve(__dirname, '../'),
-    debug: true,
-    useFileHash: false,
-    deployment: process.env.BETA ? 'beta/apps' : 'apps',
-    useProxy: true,
-    appUrl: process.env.BETA ? '/beta/settings/applications' : '/settings/applications',
-    proxyVerbose: true,
-    routes: {
-        '/api/cost-management/v1/': { host: 'http://localhost:8000' },
-    },
-  });
+const webpackProxy = {
+  deployment: process.env.BETA ? 'beta/apps' : 'apps',
+  useProxy: true,
+  env: `${process.env.ENVIRONMENT || 'ci'}-${
+    process.env.BETA ? 'beta' : 'stable'
+  }`, // for accessing prod-beta start your app with ENVIRONMENT=prod and BETA=true
+  appUrl: process.env.BETA ? '/beta/settings/applications' : '/settings/applications',
+  routes: {
+    '/api/cost-management/v1/': { host: 'http://localhost:8000' },
+    ...(process.env.CONFIG_PORT && {
+      [`${process.env.BETA ? '/beta' : ''}/config`]: {
+        host: `http://localhost:${process.env.CONFIG_PORT}`,
+      },
+    }),
+  },
+};
+
 ```
 
+* Run `npm run start:proxy`
 
-* Run `npm run start:beta`
+If you want to run on beta environment just run `BETA=true npm run start:proxy`
+
+If you want to run on different environmnent other than just `ENVIRONMENT=edge npm run start:proxy`
 
 #### Using [insights-proxy](https://github.com/RedHatInsights/insights-proxy)
-* Edit `dev.webpack.config.js` to remove `useProxy & appUrl & proxyVerbose` from the config 
-
- Example:
-``` javascript
-  const { config: webpackConfig, plugins } = config({
-    rootFolder: resolve(__dirname, '../'),
-    debug: true,
-    useFileHash: false,
-    deployment: process.env.BETA ? 'beta/apps' : 'apps',
-  });
-```
+* Just run `npm start` it will start serving your assets over webpack dev server, you also have to run the spandx proxy.
 
 * edit `settings-frontend/profiles/local-frontend-and-api.js`
   (changing the port and path to local proxy server, if needed)
