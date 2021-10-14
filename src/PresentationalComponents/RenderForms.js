@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import FormTemplate from '@data-driven-forms/pf4-component-mapper/form-template';
 import componentMapper from '@data-driven-forms/pf4-component-mapper/component-mapper';
@@ -48,36 +48,44 @@ const FormTemplateWrapper = (props) => (
   <FormTemplate {...props} submitLabel="Save" canReset />
 );
 
-const RenderForms = ({ schemas, loaded, saveValues, ...props }) => (
-  <Stack {...props} hasGutter>
-    {loaded ? (
-      schemas.map((schema, i) => (
-        <StackItem key={`settings-form-${i}`}>
+const RenderForms = ({ schemas, loaded, saveValues, ...props }) => {
+  const [initialValues, setInitialValues] = useState();
+  return (
+    <Stack {...props} hasGutter>
+      {loaded ? (
+        schemas.map((schema, i) => (
+          <StackItem key={`settings-form-${i}`}>
+            <Card>
+              <CardBody>
+                <FormRender
+                  componentMapper={componentMapperExtended}
+                  FormTemplate={FormTemplateWrapper}
+                  schema={schema}
+                  submitLabel="Save"
+                  onSubmit={(values, formApi) => {
+                    setInitialValues(values);
+                    formApi.initialize(values);
+                    return saveValues(values);
+                  }}
+                  initialValues={initialValues}
+                  validatorMapper={validatorMapperBridge}
+                />
+              </CardBody>
+            </Card>
+          </StackItem>
+        ))
+      ) : (
+        <StackItem>
           <Card>
             <CardBody>
-              <FormRender
-                componentMapper={componentMapperExtended}
-                FormTemplate={FormTemplateWrapper}
-                schema={schema}
-                submitLabel="Save"
-                onSubmit={saveValues}
-                validatorMapper={validatorMapperBridge}
-              />
+              <Skeleton size="lg" />
             </CardBody>
           </Card>
         </StackItem>
-      ))
-    ) : (
-      <StackItem>
-        <Card>
-          <CardBody>
-            <Skeleton size="lg" />
-          </CardBody>
-        </Card>
-      </StackItem>
-    )}
-  </Stack>
-);
+      )}
+    </Stack>
+  );
+};
 
 RenderForms.propTypes = {
   schemas: PropTypes.arrayOf(PropTypes.shape({})),
