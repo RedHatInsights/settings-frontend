@@ -35,7 +35,7 @@ const Applications = ({
     (appsConfig && appsConfig[getAppId(match)]) || getAppId(match);
   const appName =
     (currApp.frontend && currApp.frontend.title) || currApp.title || currApp;
-  const [isOrgAdmin, setIsOrgAdmin] = useState(undefined);
+  const [isAuthorized, setIsAuthorized] = useState(true); // keep this in case we need to check auth again later
 
   useEffect(() => {
     register(reducers);
@@ -43,10 +43,6 @@ const Applications = ({
     if (!appsConfig) {
       getConfig();
     }
-
-    insights.chrome.auth
-      .getUser()
-      .then((user) => setIsOrgAdmin(user.identity.user.is_org_admin));
   }, []);
 
   useEffect(() => {
@@ -60,9 +56,9 @@ const Applications = ({
       <PageHeader>
         <React.Fragment>
           <PageHeaderTitle
-            title={isOrgAdmin ? 'Applications settings' : startCase(appName)}
+            title={isAuthorized ? 'Applications settings' : startCase(appName)}
           />
-          {isOrgAdmin &&
+          {isAuthorized &&
             (configLoaded ? (
               <p className="pf-u-mt-sm">{`Settings for ${startCase(
                 appName
@@ -72,9 +68,9 @@ const Applications = ({
             ))}
         </React.Fragment>
       </PageHeader>
-      {typeof isOrgAdmin === 'boolean' && !hasError && (
+      {typeof isAuthorized === 'boolean' && !hasError && (
         <Main>
-          {isOrgAdmin ? (
+          {isAuthorized ? (
             <RenderForms
               loaded={loaded}
               schemas={schema}
