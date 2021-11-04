@@ -7,12 +7,12 @@
     "@babel/runtime": "^7.13.17",
     "@data-driven-forms/pf4-component-mapper": "^3.12.1",
     "@data-driven-forms/react-form-renderer": "^3.12.1",
-    "@patternfly/patternfly": "^4.132.2",
-    "@patternfly/react-core": "^4.152.4",
-    "@patternfly/react-table": "^4.29.58",
-    "@redhat-cloud-services/frontend-components": "3.1.10",
-    "@redhat-cloud-services/frontend-components-notifications": "^3.1.0",
-    "@redhat-cloud-services/frontend-components-utilities": "3.1.2",
+    "@patternfly/patternfly": "^4.151.4",
+    "@patternfly/react-core": "^4.168.9",
+    "@patternfly/react-table": "^4.37.9",
+    "@redhat-cloud-services/frontend-components": "3.4.8",
+    "@redhat-cloud-services/frontend-components-notifications": "^3.2.4",
+    "@redhat-cloud-services/frontend-components-utilities": "^3.2.5",
     "babel-plugin-transform-imports": "^2.0.0",
     "classnames": "^2.3.1",
     "js-yaml": "^4.1.0",
@@ -94,7 +94,8 @@
     "deploy": "npm-run-all build:prod lint test",
     "verify": "npm-run-all build lint test",
     "nightly": "npm run deploy",
-    "start:beta": "NODE_ENV=development BETA=true webpack serve --config config/dev.webpack.config.js"
+    "start:beta": "NODE_ENV=development BETA=true webpack serve --config config/dev.webpack.config.js",
+    "start:standalone:beta": "NODE_ENV=development BETA=true webpack serve --config config/dev.standalone.webpack.config.js"
   },
   "insights": {
     "appname": "applications"
