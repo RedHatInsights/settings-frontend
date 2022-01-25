@@ -11,7 +11,6 @@ import {
 } from '@data-driven-forms/react-form-renderer';
 import Applications from './Applications';
 import { act } from 'react-dom/test-utils';
-import { init } from '../../store';
 import ErrorState from '@redhat-cloud-services/frontend-components/ErrorState';
 import { RenderForms } from '../../PresentationalComponents';
 
@@ -62,7 +61,6 @@ const mockState = {
   },
 };
 let mockStore;
-init();
 
 describe('Applications', () => {
   beforeEach(() => {

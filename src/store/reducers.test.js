@@ -4,7 +4,7 @@ import {
   defaultState,
   getConfig,
   getSchemaRejected,
-} from './reducers';
+} from './applicationReducer';
 
 describe('loading', () => {
   it('should return loading: true and empty schema', () => {
