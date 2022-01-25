@@ -18,6 +18,7 @@ global.window.insights = {
         window.insights.chrome &&
         window.insights.chrome) ||
         {}),
+      isBeta: () => true,
       getUser: () =>
         new Promise((res) =>
           res({
@@ -35,6 +36,7 @@ global.window.insights = {
 global.insights.chrome = {
   init() {},
   identifyApp() {},
+  isBeta: () => true,
   auth: {
     getUser: () =>
       Promise.resolve({
