@@ -43,6 +43,7 @@
     "roots": [
       "<rootDir>/src/"
     ],
+    "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
     }
@@ -62,7 +63,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
+    "babel-jest": "^27.4.6",
     "babel-plugin-lodash": "^3.3.4",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
@@ -71,7 +72,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.23.2",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
+    "jest": "^27.4.7",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.7.2",
     "stylelint": "^13.13.0",
