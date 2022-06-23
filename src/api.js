@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {
   authInterceptor,
-  responseDataInterceptor,
+  errorInterceptor,
   interceptor401,
   interceptor500,
-  errorInterceptor,
+  responseDataInterceptor,
 } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 import { load } from 'js-yaml';
 

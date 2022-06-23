@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
