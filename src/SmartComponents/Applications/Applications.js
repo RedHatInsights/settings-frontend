@@ -10,7 +10,7 @@ import Main from '@redhat-cloud-services/frontend-components/Main';
 import NotAuthorized from '@redhat-cloud-services/frontend-components/NotAuthorized';
 
 import { register } from '../../store';
-import reducers from '../../store/reducers';
+import applicationReducer from '../../store/applicationReducer';
 import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
 import { getSchema, saveValues, getConfig } from '../../actions';
 import { RenderForms } from '../../PresentationalComponents';
@@ -38,7 +38,7 @@ const Applications = ({
   const [isAuthorized, setIsAuthorized] = useState(true); // keep this in case we need to check auth again later
 
   useEffect(() => {
-    register(reducers);
+    register(applicationReducer);
     register({ notifications: notificationsReducer });
     if (!appsConfig) {
       getConfig();

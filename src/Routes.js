@@ -15,7 +15,7 @@ export const Routes = () => {
   return (
     <Switch>
       <Route exact path={paths.applications} component={Applications} />
-      <Route render={() => <Redirect to="/applications/insights" />} />
+      <Route render={() => <Redirect to="/applications/advisor" />} />
     </Switch>
   );
 };

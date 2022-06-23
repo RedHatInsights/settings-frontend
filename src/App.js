@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Routes } from './Routes';
 import NotificationsPortal from '@redhat-cloud-services/frontend-components-notifications/NotificationPortal';
+import ErroReducerCatcher from './PresentationalComponents/shared/ErrorReducerCatcher';
 
 import './App.scss';
 
@@ -33,7 +34,9 @@ class App extends Component {
     return (
       <React.Fragment>
         <NotificationsPortal />
-        <Routes childProps={this.props} />
+        <ErroReducerCatcher>
+          <Routes childProps={this.props} />
+        </ErroReducerCatcher>
       </React.Fragment>
     );
   }
