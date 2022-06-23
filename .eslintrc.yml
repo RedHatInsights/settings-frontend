@@ -2,3 +2,7 @@ extends:
   - '@redhat-cloud-services/eslint-config-redhat-cloud-services'
 globals:
   insights: readable
+rules:
+  sort-imports:
+    - error
+    - ignoreDeclarationSort: true
