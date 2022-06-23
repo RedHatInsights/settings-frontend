@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`plain text hack - render 1`] = `
+<ErrorState
+  errorDescription={
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This is a test",
+        }
+      }
+    />
+  }
+  errorTitle="Testing"
+/>
+`;

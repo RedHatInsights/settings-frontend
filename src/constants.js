@@ -9,3 +9,5 @@ const asyncActions = flatMap(
 );
 
 export const ACTION_TYPES = keyBy([...actions, ...asyncActions], (k) => k);
+
+export const API_ERROR = 'API_ERROR';
