@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FormTemplate from '@data-driven-forms/pf4-component-mapper/form-template';
 import componentMapper from '@data-driven-forms/pf4-component-mapper/component-mapper';
 import Skeleton from '@redhat-cloud-services/frontend-components/Skeleton';
-import { Stack, StackItem, Card, CardBody } from '@patternfly/react-core';
+import { Card, CardBody, Stack, StackItem } from '@patternfly/react-core';
 import { PlainTextWithLinks } from './PlainTextWithLinks';
 import { ErrState } from './ErrState';
 
