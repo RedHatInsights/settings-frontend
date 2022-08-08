@@ -1,9 +1,9 @@
 import {
-  getSchema,
-  loading,
   defaultState,
   getConfig,
+  getSchema,
   getSchemaRejected,
+  loading,
 } from './applicationReducer';
 
 describe('loading', () => {
