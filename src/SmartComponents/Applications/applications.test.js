@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
@@ -13,6 +13,16 @@ import Applications from './Applications';
 import { act } from 'react-dom/test-utils';
 import ErrorState from '@redhat-cloud-services/frontend-components/ErrorState';
 import { RenderForms } from '../../PresentationalComponents';
+
+import * as api from '../../api';
+
+jest.mock('../../api', () => {
+  const actual = jest.requireActual('../../api');
+  return {
+    __esModule: true,
+    ...actual,
+  };
+});
 
 const emptyState = {
   applicationsStore: {
@@ -63,28 +73,42 @@ const mockState = {
 let mockStore;
 
 describe('Applications', () => {
+  const saveValuesSpy = jest.spyOn(api, 'saveValues');
+  const getApplicationSchemaSpy = jest.spyOn(api, 'getApplicationSchema');
+  const getConfigSpy = jest.spyOn(api, 'getConfig');
+  saveValuesSpy.mockImplementation(() => Promise.resolve({}));
+  getApplicationSchemaSpy.mockImplementation(() =>
+    Promise.resolve({ fields: [] })
+  );
+  getConfigSpy.mockImplementation(() => Promise.resolve(''));
+
   beforeEach(() => {
     mockStore = configureStore([createPromise(), notificationsMiddleware()]);
   });
 
-  it('Render applications with no data', () => {
+  it('Render applications with no data', async () => {
     const store = mockStore({});
-    const wrapper = mount(
-      <Provider store={store}>
-        <Applications match={{ params: { id: 'testapp' } }} />
-      </Provider>
-    );
-    wrapper.update();
-    expect(toJson(wrapper)).toMatchSnapshot();
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <Provider store={store}>
+          <Applications match={{ params: { id: 'testapp' } }} />
+        </Provider>
+      );
+      expect(toJson(wrapper)).toMatchSnapshot();
+    });
   });
 
-  it('Render applications with error', () => {
+  it('Render applications with error', async () => {
     const store = mockStore({ applicationsStore: { error: true } });
-    const wrapper = mount(
-      <Provider store={store}>
-        <Applications match={{ params: { id: 'testapp' } }} />
-      </Provider>
-    );
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <Provider store={store}>
+          <Applications match={{ params: { id: 'testapp' } }} />
+        </Provider>
+      );
+    });
     wrapper.update();
     expect(wrapper.find(ErrorState)).toHaveLength(1);
     expect(wrapper.find(RenderForms)).toHaveLength(0);
@@ -100,54 +124,62 @@ describe('Applications', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('Render applications with mockState', () => {
+  it('Render applications with mockState', async () => {
     const store = mockStore(mockState);
-    const wrapper = mount(
-      <Provider store={store}>
-        <Applications match={{ params: { id: 'testapp' } }} />
-      </Provider>
-    );
+    let wrapper;
+    await act(async () => {
+      wrapper = mount(
+        <Provider store={store}>
+          <Applications match={{ params: { id: 'testapp' } }} />
+        </Provider>
+      );
+    });
     wrapper.update();
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('should emit type-success notification on saving a form', () => {
+  it('should emit type-success notification on saving a form', async () => {
     const store = mockStore(mockState);
     let wrapper;
-    act(async () => {
+
+    await act(async () => {
       wrapper = mount(
         <Provider store={store}>
           <Applications appsConfig={{}} match={{ params: { id: 'testapp' } }} />
         </Provider>
       );
+    });
 
+    await act(async () => {
       wrapper.update();
     });
-    setImmediate(async (done) => {
-      const input = wrapper.find('input#email');
-      input.getDOMNode().value = 'value';
-      input.simulate('change');
+
+    const input = wrapper.find('input#email');
+    input.getDOMNode().value = 'value';
+    input.simulate('change');
+
+    await act(async () => {
       wrapper.update();
-      wrapper.find('form.pf-c-form').simulate('submit');
-      const expectedPayload = [
-        expect.anything(),
-        expect.objectContaining({
-          meta: {
-            notifications: {
-              fulfilled: {
-                description:
-                  'Settings for Red Hat Insights were replaced with new values.',
-                dismissable: true,
-                title: 'Application settings saved',
-                variant: 'success',
-              },
-            },
+    });
+
+    wrapper.find('form.pf-c-form').simulate('submit');
+    const expectedPayload = expect.objectContaining({
+      meta: {
+        notifications: {
+          fulfilled: {
+            description:
+              'Settings for Red Hat Insights were replaced with new values.',
+            dismissable: true,
+            title: 'Application settings saved',
+            variant: 'success',
           },
-        }),
-      ];
-      wrapper.update();
-      expect(store.getActions()).toEqual(expectedPayload);
-      done();
+        },
+      },
     });
+    await act(async () => {
+      wrapper.update();
+    });
+
+    expect(store.getActions().pop()).toEqual(expectedPayload);
   });
 });
