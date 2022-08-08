@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import React, { lazy } from 'react';
 
 const Applications = lazy(() =>
@@ -15,7 +15,7 @@ export const Routes = () => {
   return (
     <Switch>
       <Route exact path={paths.applications} component={Applications} />
-      <Route render={() => <Redirect to="/applications/insights" />} />
+      <Route render={() => <Redirect to="/applications/advisor" />} />
     </Switch>
   );
 };
