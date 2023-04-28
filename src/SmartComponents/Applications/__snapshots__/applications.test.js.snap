@@ -411,7 +411,12 @@ exports[`Applications Render applications with mockState 1`] = `
                                         Button={[Function]}
                                         ButtonGroup={[Function]}
                                         Description={[Function]}
-                                        FormWrapper={[Function]}
+                                        FormWrapper={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
                                         Header={Symbol(react.fragment)}
                                         Title={[Function]}
                                         canReset={true}
@@ -472,385 +477,109 @@ exports[`Applications Render applications with mockState 1`] = `
                                         <Form
                                           onSubmit={[Function]}
                                         >
-                                          <form
-                                            className="pf-c-form"
-                                            noValidate={true}
+                                          <FormBase
+                                            innerRef={null}
                                             onSubmit={[Function]}
                                           >
-                                            <FormSpy
-                                              subscription={
-                                                Object {
-                                                  "error": true,
-                                                  "submitError": true,
-                                                }
-                                              }
+                                            <form
+                                              className="pf-c-form"
+                                              noValidate={true}
+                                              onSubmit={[Function]}
                                             >
-                                              <FormError
-                                                formSpyProps={
+                                              <FormSpy
+                                                subscription={
                                                   Object {
-                                                    "active": undefined,
-                                                    "dirty": false,
-                                                    "dirtyFields": Object {},
-                                                    "dirtyFieldsSinceLastSubmit": Object {
-                                                      "email": true,
-                                                      "hideSatelliteSystems": true,
-                                                    },
-                                                    "dirtySinceLastSubmit": false,
-                                                    "error": undefined,
-                                                    "errors": Object {
-                                                      "email": "Required",
-                                                    },
-                                                    "hasSubmitErrors": false,
-                                                    "hasValidationErrors": true,
-                                                    "initialValues": Object {
-                                                      "email": "",
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "invalid": true,
-                                                    "modified": Object {
-                                                      "email": false,
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "modifiedSinceLastSubmit": false,
-                                                    "pristine": true,
-                                                    "submitError": undefined,
-                                                    "submitErrors": undefined,
-                                                    "submitFailed": false,
-                                                    "submitSucceeded": false,
-                                                    "submitting": false,
-                                                    "touched": Object {
-                                                      "email": false,
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "valid": false,
-                                                    "validating": false,
-                                                    "values": Object {
-                                                      "email": "",
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "visited": Object {
-                                                      "email": false,
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                  }
-                                                }
-                                              />
-                                            </FormSpy>
-                                            <SingleField
-                                              component="text-field"
-                                              initialValue=""
-                                              isRequired={true}
-                                              key="email"
-                                              label="Email"
-                                              name="email"
-                                              validate={
-                                                Array [
-                                                  Object {
-                                                    "type": "required",
-                                                  },
-                                                ]
-                                              }
-                                            >
-                                              <FormConditionWrapper
-                                                field={
-                                                  Object {
-                                                    "component": "text-field",
-                                                    "initialValue": "",
-                                                    "isRequired": true,
-                                                    "label": "Email",
-                                                    "name": "email",
-                                                    "validate": Array [
-                                                      Object {
-                                                        "type": "required",
-                                                      },
-                                                    ],
+                                                    "error": true,
+                                                    "submitError": true,
                                                   }
                                                 }
                                               >
-                                                <FormFieldHideWrapper
-                                                  hideField={false}
-                                                >
-                                                  <TextField
-                                                    component="text-field"
-                                                    initialValue=""
-                                                    isRequired={true}
-                                                    label="Email"
-                                                    name="email"
-                                                    validate={
-                                                      Array [
+                                                <FormError
+                                                  formSpyProps={
+                                                    Object {
+                                                      "active": undefined,
+                                                      "dirty": false,
+                                                      "dirtyFields": Object {},
+                                                      "dirtyFieldsSinceLastSubmit": Object {
+                                                        "email": true,
+                                                        "hideSatelliteSystems": true,
+                                                      },
+                                                      "dirtySinceLastSubmit": false,
+                                                      "error": undefined,
+                                                      "errors": Object {
+                                                        "email": "Required",
+                                                      },
+                                                      "hasSubmitErrors": false,
+                                                      "hasValidationErrors": true,
+                                                      "initialValues": Object {
+                                                        "email": "",
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "invalid": true,
+                                                      "modified": Object {
+                                                        "email": false,
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "modifiedSinceLastSubmit": false,
+                                                      "pristine": true,
+                                                      "submitError": undefined,
+                                                      "submitErrors": undefined,
+                                                      "submitFailed": false,
+                                                      "submitSucceeded": false,
+                                                      "submitting": false,
+                                                      "touched": Object {
+                                                        "email": false,
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "valid": false,
+                                                      "validating": false,
+                                                      "values": Object {
+                                                        "email": "",
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "visited": Object {
+                                                        "email": false,
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                    }
+                                                  }
+                                                />
+                                              </FormSpy>
+                                              <SingleField
+                                                component="text-field"
+                                                initialValue=""
+                                                isRequired={true}
+                                                key="email"
+                                                label="Email"
+                                                name="email"
+                                                validate={
+                                                  Array [
+                                                    Object {
+                                                      "type": "required",
+                                                    },
+                                                  ]
+                                                }
+                                              >
+                                                <FormConditionWrapper
+                                                  field={
+                                                    Object {
+                                                      "component": "text-field",
+                                                      "initialValue": "",
+                                                      "isRequired": true,
+                                                      "label": "Email",
+                                                      "name": "email",
+                                                      "validate": Array [
                                                         Object {
                                                           "type": "required",
                                                         },
-                                                      ]
+                                                      ],
                                                     }
-                                                  >
-                                                    <FormGroup
-                                                      id="email"
-                                                      isRequired={true}
-                                                      label="Email"
-                                                      meta={
-                                                        Object {
-                                                          "active": false,
-                                                          "data": Object {},
-                                                          "dirty": false,
-                                                          "dirtySinceLastSubmit": false,
-                                                          "error": "Required",
-                                                          "initial": "",
-                                                          "invalid": true,
-                                                          "length": undefined,
-                                                          "modified": false,
-                                                          "modifiedSinceLastSubmit": false,
-                                                          "pristine": true,
-                                                          "submitError": undefined,
-                                                          "submitFailed": false,
-                                                          "submitSucceeded": false,
-                                                          "submitting": false,
-                                                          "touched": false,
-                                                          "valid": false,
-                                                          "validating": false,
-                                                          "visited": false,
-                                                        }
-                                                      }
-                                                    >
-                                                      <FormGroup
-                                                        fieldId="email"
-                                                        helperTextInvalid="Required"
-                                                        isRequired={true}
-                                                        label="Email"
-                                                        validated="default"
-                                                      >
-                                                        <div
-                                                          className="pf-c-form__group"
-                                                        >
-                                                          <div
-                                                            className="pf-c-form__group-label"
-                                                          >
-                                                            <label
-                                                              className="pf-c-form__label"
-                                                              htmlFor="email"
-                                                            >
-                                                              <span
-                                                                className="pf-c-form__label-text"
-                                                              >
-                                                                Email
-                                                              </span>
-                                                              <span
-                                                                aria-hidden="true"
-                                                                className="pf-c-form__label-required"
-                                                              >
-                                                                 
-                                                                *
-                                                              </span>
-                                                            </label>
-                                                             
-                                                          </div>
-                                                          <div
-                                                            className="pf-c-form__group-control"
-                                                          >
-                                                            <TextInput
-                                                              id="email"
-                                                              isRequired={true}
-                                                              name="email"
-                                                              onBlur={[Function]}
-                                                              onChange={[Function]}
-                                                              onFocus={[Function]}
-                                                              validated="default"
-                                                              value=""
-                                                            >
-                                                              <TextInputBase
-                                                                aria-label={null}
-                                                                className=""
-                                                                id="email"
-                                                                innerRef={null}
-                                                                isDisabled={false}
-                                                                isLeftTruncated={false}
-                                                                isReadOnly={false}
-                                                                isRequired={true}
-                                                                name="email"
-                                                                onBlur={[Function]}
-                                                                onChange={[Function]}
-                                                                onFocus={[Function]}
-                                                                ouiaSafe={true}
-                                                                type="text"
-                                                                validated="default"
-                                                                value=""
-                                                              >
-                                                                <input
-                                                                  aria-invalid={false}
-                                                                  aria-label={null}
-                                                                  className="pf-c-form-control"
-                                                                  data-ouia-component-id="OUIA-Generated-TextInputBase-1"
-                                                                  data-ouia-component-type="PF4/TextInput"
-                                                                  data-ouia-safe={true}
-                                                                  disabled={false}
-                                                                  id="email"
-                                                                  name="email"
-                                                                  onBlur={[Function]}
-                                                                  onChange={[Function]}
-                                                                  onFocus={[Function]}
-                                                                  readOnly={false}
-                                                                  required={true}
-                                                                  type="text"
-                                                                  value=""
-                                                                />
-                                                              </TextInputBase>
-                                                            </TextInput>
-                                                          </div>
-                                                        </div>
-                                                      </FormGroup>
-                                                    </FormGroup>
-                                                  </TextField>
-                                                </FormFieldHideWrapper>
-                                              </FormConditionWrapper>
-                                            </SingleField>
-                                            <SingleField
-                                              component="switch"
-                                              initialValue={false}
-                                              key="hideSatelliteSystems"
-                                              label="Hide Satellite systems"
-                                              name="hideSatelliteSystems"
-                                              type="checkbox"
-                                            >
-                                              <FormConditionWrapper
-                                                field={
-                                                  Object {
-                                                    "component": "switch",
-                                                    "initialValue": false,
-                                                    "label": "Hide Satellite systems",
-                                                    "name": "hideSatelliteSystems",
-                                                    "type": "checkbox",
                                                   }
-                                                }
-                                              >
-                                                <FormFieldHideWrapper
-                                                  hideField={false}
                                                 >
-                                                  <Switch
-                                                    component="switch"
-                                                    initialValue={false}
-                                                    label="Hide Satellite systems"
-                                                    name="hideSatelliteSystems"
-                                                    type="checkbox"
+                                                  <FormFieldHideWrapper
+                                                    hideField={false}
                                                   >
-                                                    <FormGroup
-                                                      hideLabel={true}
-                                                      id="hideSatelliteSystems"
-                                                      meta={
-                                                        Object {
-                                                          "active": false,
-                                                          "data": Object {},
-                                                          "dirty": false,
-                                                          "dirtySinceLastSubmit": false,
-                                                          "error": undefined,
-                                                          "initial": false,
-                                                          "invalid": false,
-                                                          "length": undefined,
-                                                          "modified": false,
-                                                          "modifiedSinceLastSubmit": false,
-                                                          "pristine": true,
-                                                          "submitError": undefined,
-                                                          "submitFailed": false,
-                                                          "submitSucceeded": false,
-                                                          "submitting": false,
-                                                          "touched": false,
-                                                          "valid": true,
-                                                          "validating": false,
-                                                          "visited": false,
-                                                        }
-                                                      }
-                                                    >
-                                                      <FormGroup
-                                                        fieldId="hideSatelliteSystems"
-                                                        label={false}
-                                                        validated="default"
-                                                      >
-                                                        <div
-                                                          className="pf-c-form__group"
-                                                        >
-                                                          <div
-                                                            className="pf-c-form__group-control"
-                                                          >
-                                                            <Switch
-                                                              aria-label=""
-                                                              checked={false}
-                                                              id="hideSatelliteSystems"
-                                                              isChecked={true}
-                                                              isDisabled={false}
-                                                              isReversed={false}
-                                                              label="Hide Satellite systems"
-                                                              labelOff="Hide Satellite systems"
-                                                              name="hideSatelliteSystems"
-                                                              onBlur={[Function]}
-                                                              onChange={[Function]}
-                                                              onFocus={[Function]}
-                                                              type="checkbox"
-                                                            >
-                                                              <label
-                                                                className="pf-c-switch"
-                                                                data-ouia-component-id="OUIA-Generated-Switch-1"
-                                                                data-ouia-component-type="PF4/Switch"
-                                                                data-ouia-safe={true}
-                                                                htmlFor="hideSatelliteSystems"
-                                                              >
-                                                                <input
-                                                                  aria-label=""
-                                                                  aria-labelledby="hideSatelliteSystems-on"
-                                                                  checked={false}
-                                                                  className="pf-c-switch__input"
-                                                                  disabled={false}
-                                                                  id="hideSatelliteSystems"
-                                                                  name="hideSatelliteSystems"
-                                                                  onBlur={[Function]}
-                                                                  onChange={[Function]}
-                                                                  onFocus={[Function]}
-                                                                  type="checkbox"
-                                                                />
-                                                                <span
-                                                                  className="pf-c-switch__toggle"
-                                                                />
-                                                                <span
-                                                                  aria-hidden="true"
-                                                                  className="pf-c-switch__label pf-m-on"
-                                                                  id="hideSatelliteSystems-on"
-                                                                >
-                                                                  Hide Satellite systems
-                                                                </span>
-                                                                <span
-                                                                  aria-hidden="true"
-                                                                  className="pf-c-switch__label pf-m-off"
-                                                                  id="hideSatelliteSystems-off"
-                                                                >
-                                                                  Hide Satellite systems
-                                                                </span>
-                                                              </label>
-                                                            </Switch>
-                                                          </div>
-                                                        </div>
-                                                      </FormGroup>
-                                                    </FormGroup>
-                                                  </Switch>
-                                                </FormFieldHideWrapper>
-                                              </FormConditionWrapper>
-                                            </SingleField>
-                                            <FormSpy>
-                                              <FormControls
-                                                Button={[Function]}
-                                                ButtonGroup={[Function]}
-                                                FormSpy={[Function]}
-                                                buttonOrder={
-                                                  Array [
-                                                    "submit",
-                                                    "reset",
-                                                    "cancel",
-                                                  ]
-                                                }
-                                                buttonsProps={Object {}}
-                                                canReset={true}
-                                                canSubmit={false}
-                                                cancelLabel="Cancel"
-                                                formFields={
-                                                  Array [
-                                                    <SingleField
+                                                    <TextField
                                                       component="text-field"
                                                       initialValue=""
                                                       isRequired={true}
@@ -863,217 +592,506 @@ exports[`Applications Render applications with mockState 1`] = `
                                                           },
                                                         ]
                                                       }
-                                                    />,
-                                                    <SingleField
+                                                    >
+                                                      <FormGroup
+                                                        id="email"
+                                                        isRequired={true}
+                                                        label="Email"
+                                                        meta={
+                                                          Object {
+                                                            "active": false,
+                                                            "data": Object {},
+                                                            "dirty": false,
+                                                            "dirtySinceLastSubmit": false,
+                                                            "error": "Required",
+                                                            "initial": "",
+                                                            "invalid": true,
+                                                            "length": undefined,
+                                                            "modified": false,
+                                                            "modifiedSinceLastSubmit": false,
+                                                            "pristine": true,
+                                                            "submitError": undefined,
+                                                            "submitFailed": false,
+                                                            "submitSucceeded": false,
+                                                            "submitting": false,
+                                                            "touched": false,
+                                                            "valid": false,
+                                                            "validating": false,
+                                                            "visited": false,
+                                                          }
+                                                        }
+                                                      >
+                                                        <FormGroup
+                                                          fieldId="email"
+                                                          helperTextInvalid="Required"
+                                                          isRequired={true}
+                                                          label="Email"
+                                                          validated="default"
+                                                        >
+                                                          <GenerateId
+                                                            prefix="pf-random-id-"
+                                                          >
+                                                            <div
+                                                              className="pf-c-form__group"
+                                                            >
+                                                              <div
+                                                                className="pf-c-form__group-label"
+                                                              >
+                                                                <label
+                                                                  className="pf-c-form__label"
+                                                                  htmlFor="email"
+                                                                >
+                                                                  <span
+                                                                    className="pf-c-form__label-text"
+                                                                  >
+                                                                    Email
+                                                                  </span>
+                                                                  <span
+                                                                    aria-hidden="true"
+                                                                    className="pf-c-form__label-required"
+                                                                  >
+                                                                     
+                                                                    *
+                                                                  </span>
+                                                                </label>
+                                                                 
+                                                              </div>
+                                                              <div
+                                                                className="pf-c-form__group-control"
+                                                              >
+                                                                <TextInput
+                                                                  id="email"
+                                                                  isRequired={true}
+                                                                  name="email"
+                                                                  onBlur={[Function]}
+                                                                  onChange={[Function]}
+                                                                  onFocus={[Function]}
+                                                                  validated="default"
+                                                                  value=""
+                                                                >
+                                                                  <TextInputBase
+                                                                    aria-label={null}
+                                                                    className=""
+                                                                    id="email"
+                                                                    innerRef={null}
+                                                                    isDisabled={false}
+                                                                    isIconSprite={false}
+                                                                    isLeftTruncated={false}
+                                                                    isReadOnly={false}
+                                                                    isRequired={true}
+                                                                    name="email"
+                                                                    onBlur={[Function]}
+                                                                    onChange={[Function]}
+                                                                    onFocus={[Function]}
+                                                                    ouiaSafe={true}
+                                                                    type="text"
+                                                                    validated="default"
+                                                                    value=""
+                                                                  >
+                                                                    <input
+                                                                      aria-invalid={false}
+                                                                      aria-label={null}
+                                                                      className="pf-c-form-control"
+                                                                      data-ouia-component-id="OUIA-Generated-TextInputBase-1"
+                                                                      data-ouia-component-type="PF4/TextInput"
+                                                                      data-ouia-safe={true}
+                                                                      disabled={false}
+                                                                      id="email"
+                                                                      name="email"
+                                                                      onBlur={[Function]}
+                                                                      onChange={[Function]}
+                                                                      onFocus={[Function]}
+                                                                      required={true}
+                                                                      type="text"
+                                                                      value=""
+                                                                    />
+                                                                  </TextInputBase>
+                                                                </TextInput>
+                                                              </div>
+                                                            </div>
+                                                          </GenerateId>
+                                                        </FormGroup>
+                                                      </FormGroup>
+                                                    </TextField>
+                                                  </FormFieldHideWrapper>
+                                                </FormConditionWrapper>
+                                              </SingleField>
+                                              <SingleField
+                                                component="switch"
+                                                initialValue={false}
+                                                key="hideSatelliteSystems"
+                                                label="Hide Satellite systems"
+                                                name="hideSatelliteSystems"
+                                                type="checkbox"
+                                              >
+                                                <FormConditionWrapper
+                                                  field={
+                                                    Object {
+                                                      "component": "switch",
+                                                      "initialValue": false,
+                                                      "label": "Hide Satellite systems",
+                                                      "name": "hideSatelliteSystems",
+                                                      "type": "checkbox",
+                                                    }
+                                                  }
+                                                >
+                                                  <FormFieldHideWrapper
+                                                    hideField={false}
+                                                  >
+                                                    <Switch
                                                       component="switch"
                                                       initialValue={false}
                                                       label="Hide Satellite systems"
                                                       name="hideSatelliteSystems"
                                                       type="checkbox"
-                                                    />,
-                                                  ]
-                                                }
-                                                formSpyProps={
-                                                  Object {
-                                                    "active": undefined,
-                                                    "dirty": false,
-                                                    "dirtyFields": Object {},
-                                                    "dirtyFieldsSinceLastSubmit": Object {
-                                                      "email": true,
-                                                      "hideSatelliteSystems": true,
-                                                    },
-                                                    "dirtySinceLastSubmit": false,
-                                                    "error": undefined,
-                                                    "errors": Object {
-                                                      "email": "Required",
-                                                    },
-                                                    "form": Object {
-                                                      "batch": [Function],
-                                                      "blur": [Function],
-                                                      "change": [Function],
-                                                      "destroyOnUnregister": false,
-                                                      "focus": [Function],
-                                                      "getFieldState": [Function],
-                                                      "getRegisteredFields": [Function],
-                                                      "getState": [Function],
-                                                      "initialize": [Function],
-                                                      "isValidationPaused": [Function],
-                                                      "mutators": Object {
-                                                        "concat": [Function],
-                                                        "insert": [Function],
-                                                        "move": [Function],
-                                                        "pop": [Function],
-                                                        "push": [Function],
-                                                        "remove": [Function],
-                                                        "removeBatch": [Function],
-                                                        "shift": [Function],
-                                                        "swap": [Function],
-                                                        "unshift": [Function],
-                                                        "update": [Function],
-                                                      },
-                                                      "pauseValidation": [Function],
-                                                      "registerField": [Function],
-                                                      "reset": [Function],
-                                                      "resetFieldState": [Function],
-                                                      "restart": [Function],
-                                                      "resumeValidation": [Function],
-                                                      "setConfig": [Function],
-                                                      "submit": [Function],
-                                                      "subscribe": [Function],
-                                                    },
-                                                    "hasSubmitErrors": false,
-                                                    "hasValidationErrors": true,
-                                                    "initialValues": Object {
-                                                      "email": "",
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "invalid": true,
-                                                    "modified": Object {
-                                                      "email": false,
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "modifiedSinceLastSubmit": false,
-                                                    "pristine": true,
-                                                    "submitError": undefined,
-                                                    "submitErrors": undefined,
-                                                    "submitFailed": false,
-                                                    "submitSucceeded": false,
-                                                    "submitting": false,
-                                                    "touched": Object {
-                                                      "email": false,
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "valid": false,
-                                                    "validating": false,
-                                                    "values": Object {
-                                                      "email": "",
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                    "visited": Object {
-                                                      "email": false,
-                                                      "hideSatelliteSystems": false,
-                                                    },
-                                                  }
-                                                }
-                                                onReset={[Function]}
-                                                resetLabel="Reset"
-                                                schema={
-                                                  Object {
-                                                    "fields": Array [
-                                                      Object {
-                                                        "component": "text-field",
-                                                        "initialValue": "",
-                                                        "isRequired": true,
-                                                        "label": "Email",
-                                                        "name": "email",
-                                                        "validate": Array [
-                                                          Object {
-                                                            "type": "required",
-                                                          },
-                                                        ],
-                                                      },
-                                                      Object {
-                                                        "component": "switch",
-                                                        "initialValue": false,
-                                                        "label": "Hide Satellite systems",
-                                                        "name": "hideSatelliteSystems",
-                                                        "type": "checkbox",
-                                                      },
-                                                    ],
-                                                  }
-                                                }
-                                                submitLabel="Save"
-                                              >
-                                                <ButtonGroup>
-                                                  <ActionGroup>
-                                                    <div
-                                                      className="pf-c-form__group pf-m-action"
                                                     >
+                                                      <FormGroup
+                                                        hideLabel={true}
+                                                        id="hideSatelliteSystems"
+                                                        meta={
+                                                          Object {
+                                                            "active": false,
+                                                            "data": Object {},
+                                                            "dirty": false,
+                                                            "dirtySinceLastSubmit": false,
+                                                            "error": undefined,
+                                                            "initial": false,
+                                                            "invalid": false,
+                                                            "length": undefined,
+                                                            "modified": false,
+                                                            "modifiedSinceLastSubmit": false,
+                                                            "pristine": true,
+                                                            "submitError": undefined,
+                                                            "submitFailed": false,
+                                                            "submitSucceeded": false,
+                                                            "submitting": false,
+                                                            "touched": false,
+                                                            "valid": true,
+                                                            "validating": false,
+                                                            "visited": false,
+                                                          }
+                                                        }
+                                                      >
+                                                        <FormGroup
+                                                          fieldId="hideSatelliteSystems"
+                                                          label={false}
+                                                          validated="default"
+                                                        >
+                                                          <GenerateId
+                                                            prefix="pf-random-id-"
+                                                          >
+                                                            <div
+                                                              className="pf-c-form__group"
+                                                            >
+                                                              <div
+                                                                className="pf-c-form__group-control"
+                                                              >
+                                                                <Switch
+                                                                  aria-label=""
+                                                                  checked={false}
+                                                                  id="hideSatelliteSystems"
+                                                                  isChecked={true}
+                                                                  isDisabled={false}
+                                                                  isReversed={false}
+                                                                  label="Hide Satellite systems"
+                                                                  labelOff="Hide Satellite systems"
+                                                                  name="hideSatelliteSystems"
+                                                                  onBlur={[Function]}
+                                                                  onChange={[Function]}
+                                                                  onFocus={[Function]}
+                                                                  type="checkbox"
+                                                                >
+                                                                  <label
+                                                                    className="pf-c-switch"
+                                                                    data-ouia-component-id="OUIA-Generated-Switch-1"
+                                                                    data-ouia-component-type="PF4/Switch"
+                                                                    data-ouia-safe={true}
+                                                                    htmlFor="hideSatelliteSystems"
+                                                                  >
+                                                                    <input
+                                                                      aria-label=""
+                                                                      aria-labelledby="hideSatelliteSystems-on"
+                                                                      checked={false}
+                                                                      className="pf-c-switch__input"
+                                                                      disabled={false}
+                                                                      id="hideSatelliteSystems"
+                                                                      name="hideSatelliteSystems"
+                                                                      onBlur={[Function]}
+                                                                      onChange={[Function]}
+                                                                      onFocus={[Function]}
+                                                                      type="checkbox"
+                                                                    />
+                                                                    <span
+                                                                      className="pf-c-switch__toggle"
+                                                                    />
+                                                                    <span
+                                                                      aria-hidden="true"
+                                                                      className="pf-c-switch__label pf-m-on"
+                                                                      id="hideSatelliteSystems-on"
+                                                                    >
+                                                                      Hide Satellite systems
+                                                                    </span>
+                                                                    <span
+                                                                      aria-hidden="true"
+                                                                      className="pf-c-switch__label pf-m-off"
+                                                                      id="hideSatelliteSystems-off"
+                                                                    >
+                                                                      Hide Satellite systems
+                                                                    </span>
+                                                                  </label>
+                                                                </Switch>
+                                                              </div>
+                                                            </div>
+                                                          </GenerateId>
+                                                        </FormGroup>
+                                                      </FormGroup>
+                                                    </Switch>
+                                                  </FormFieldHideWrapper>
+                                                </FormConditionWrapper>
+                                              </SingleField>
+                                              <FormSpy>
+                                                <FormControls
+                                                  Button={[Function]}
+                                                  ButtonGroup={[Function]}
+                                                  FormSpy={[Function]}
+                                                  buttonOrder={
+                                                    Array [
+                                                      "submit",
+                                                      "reset",
+                                                      "cancel",
+                                                    ]
+                                                  }
+                                                  buttonsProps={Object {}}
+                                                  canReset={true}
+                                                  canSubmit={false}
+                                                  cancelLabel="Cancel"
+                                                  formFields={
+                                                    Array [
+                                                      <SingleField
+                                                        component="text-field"
+                                                        initialValue=""
+                                                        isRequired={true}
+                                                        label="Email"
+                                                        name="email"
+                                                        validate={
+                                                          Array [
+                                                            Object {
+                                                              "type": "required",
+                                                            },
+                                                          ]
+                                                        }
+                                                      />,
+                                                      <SingleField
+                                                        component="switch"
+                                                        initialValue={false}
+                                                        label="Hide Satellite systems"
+                                                        name="hideSatelliteSystems"
+                                                        type="checkbox"
+                                                      />,
+                                                    ]
+                                                  }
+                                                  formSpyProps={
+                                                    Object {
+                                                      "active": undefined,
+                                                      "dirty": false,
+                                                      "dirtyFields": Object {},
+                                                      "dirtyFieldsSinceLastSubmit": Object {
+                                                        "email": true,
+                                                        "hideSatelliteSystems": true,
+                                                      },
+                                                      "dirtySinceLastSubmit": false,
+                                                      "error": undefined,
+                                                      "errors": Object {
+                                                        "email": "Required",
+                                                      },
+                                                      "form": Object {
+                                                        "batch": [Function],
+                                                        "blur": [Function],
+                                                        "change": [Function],
+                                                        "destroyOnUnregister": false,
+                                                        "focus": [Function],
+                                                        "getFieldState": [Function],
+                                                        "getRegisteredFields": [Function],
+                                                        "getState": [Function],
+                                                        "initialize": [Function],
+                                                        "isValidationPaused": [Function],
+                                                        "mutators": Object {
+                                                          "concat": [Function],
+                                                          "insert": [Function],
+                                                          "move": [Function],
+                                                          "pop": [Function],
+                                                          "push": [Function],
+                                                          "remove": [Function],
+                                                          "removeBatch": [Function],
+                                                          "shift": [Function],
+                                                          "swap": [Function],
+                                                          "unshift": [Function],
+                                                          "update": [Function],
+                                                        },
+                                                        "pauseValidation": [Function],
+                                                        "registerField": [Function],
+                                                        "reset": [Function],
+                                                        "resetFieldState": [Function],
+                                                        "restart": [Function],
+                                                        "resumeValidation": [Function],
+                                                        "setConfig": [Function],
+                                                        "submit": [Function],
+                                                        "subscribe": [Function],
+                                                      },
+                                                      "hasSubmitErrors": false,
+                                                      "hasValidationErrors": true,
+                                                      "initialValues": Object {
+                                                        "email": "",
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "invalid": true,
+                                                      "modified": Object {
+                                                        "email": false,
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "modifiedSinceLastSubmit": false,
+                                                      "pristine": true,
+                                                      "submitError": undefined,
+                                                      "submitErrors": undefined,
+                                                      "submitFailed": false,
+                                                      "submitSucceeded": false,
+                                                      "submitting": false,
+                                                      "touched": Object {
+                                                        "email": false,
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "valid": false,
+                                                      "validating": false,
+                                                      "values": Object {
+                                                        "email": "",
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                      "visited": Object {
+                                                        "email": false,
+                                                        "hideSatelliteSystems": false,
+                                                      },
+                                                    }
+                                                  }
+                                                  onReset={[Function]}
+                                                  resetLabel="Reset"
+                                                  schema={
+                                                    Object {
+                                                      "fields": Array [
+                                                        Object {
+                                                          "component": "text-field",
+                                                          "initialValue": "",
+                                                          "isRequired": true,
+                                                          "label": "Email",
+                                                          "name": "email",
+                                                          "validate": Array [
+                                                            Object {
+                                                              "type": "required",
+                                                            },
+                                                          ],
+                                                        },
+                                                        Object {
+                                                          "component": "switch",
+                                                          "initialValue": false,
+                                                          "label": "Hide Satellite systems",
+                                                          "name": "hideSatelliteSystems",
+                                                          "type": "checkbox",
+                                                        },
+                                                      ],
+                                                    }
+                                                  }
+                                                  submitLabel="Save"
+                                                >
+                                                  <ButtonGroup>
+                                                    <ActionGroup>
                                                       <div
-                                                        className="pf-c-form__group-control"
+                                                        className="pf-c-form__group pf-m-action"
                                                       >
                                                         <div
-                                                          className="pf-c-form__actions"
+                                                          className="pf-c-form__group-control"
                                                         >
-                                                          <Button
-                                                            buttonType="submit"
-                                                            key="form-submit"
-                                                            label="Save"
-                                                            type="submit"
-                                                            variant="primary"
+                                                          <div
+                                                            className="pf-c-form__actions"
                                                           >
                                                             <Button
+                                                              buttonType="submit"
+                                                              key="form-submit"
+                                                              label="Save"
                                                               type="submit"
                                                               variant="primary"
                                                             >
-                                                              <ButtonBase
-                                                                innerRef={null}
+                                                              <Button
                                                                 type="submit"
                                                                 variant="primary"
                                                               >
-                                                                <button
-                                                                  aria-disabled={false}
-                                                                  aria-label={null}
-                                                                  className="pf-c-button pf-m-primary"
-                                                                  data-ouia-component-id="OUIA-Generated-Button-primary-2"
-                                                                  data-ouia-component-type="PF4/Button"
-                                                                  data-ouia-safe={true}
-                                                                  disabled={false}
-                                                                  role={null}
+                                                                <ButtonBase
+                                                                  innerRef={null}
                                                                   type="submit"
+                                                                  variant="primary"
                                                                 >
-                                                                  Save
-                                                                </button>
-                                                              </ButtonBase>
+                                                                  <button
+                                                                    aria-disabled={false}
+                                                                    aria-label={null}
+                                                                    className="pf-c-button pf-m-primary"
+                                                                    data-ouia-component-id="OUIA-Generated-Button-primary-2"
+                                                                    data-ouia-component-type="PF4/Button"
+                                                                    data-ouia-safe={true}
+                                                                    disabled={false}
+                                                                    role={null}
+                                                                    type="submit"
+                                                                  >
+                                                                    Save
+                                                                  </button>
+                                                                </ButtonBase>
+                                                              </Button>
                                                             </Button>
-                                                          </Button>
-                                                          <Button
-                                                            buttonType="reset"
-                                                            disabled={true}
-                                                            key="form-reset"
-                                                            label="Reset"
-                                                            onClick={[Function]}
-                                                            type="button"
-                                                          >
                                                             <Button
-                                                              isDisabled={true}
+                                                              buttonType="reset"
+                                                              disabled={true}
+                                                              key="form-reset"
+                                                              label="Reset"
                                                               onClick={[Function]}
                                                               type="button"
-                                                              variant="secondary"
                                                             >
-                                                              <ButtonBase
-                                                                innerRef={null}
+                                                              <Button
                                                                 isDisabled={true}
                                                                 onClick={[Function]}
                                                                 type="button"
                                                                 variant="secondary"
                                                               >
-                                                                <button
-                                                                  aria-disabled={true}
-                                                                  aria-label={null}
-                                                                  className="pf-c-button pf-m-secondary pf-m-disabled"
-                                                                  data-ouia-component-id="OUIA-Generated-Button-secondary-1"
-                                                                  data-ouia-component-type="PF4/Button"
-                                                                  data-ouia-safe={true}
-                                                                  disabled={true}
+                                                                <ButtonBase
+                                                                  innerRef={null}
+                                                                  isDisabled={true}
                                                                   onClick={[Function]}
-                                                                  role={null}
-                                                                  tabIndex={null}
                                                                   type="button"
+                                                                  variant="secondary"
                                                                 >
-                                                                  Reset
-                                                                </button>
-                                                              </ButtonBase>
+                                                                  <button
+                                                                    aria-disabled={true}
+                                                                    aria-label={null}
+                                                                    className="pf-c-button pf-m-secondary pf-m-disabled"
+                                                                    data-ouia-component-id="OUIA-Generated-Button-secondary-1"
+                                                                    data-ouia-component-type="PF4/Button"
+                                                                    data-ouia-safe={true}
+                                                                    disabled={true}
+                                                                    onClick={[Function]}
+                                                                    role={null}
+                                                                    tabIndex={null}
+                                                                    type="button"
+                                                                  >
+                                                                    Reset
+                                                                  </button>
+                                                                </ButtonBase>
+                                                              </Button>
                                                             </Button>
-                                                          </Button>
+                                                          </div>
                                                         </div>
                                                       </div>
-                                                    </div>
-                                                  </ActionGroup>
-                                                </ButtonGroup>
-                                              </FormControls>
-                                            </FormSpy>
-                                          </form>
+                                                    </ActionGroup>
+                                                  </ButtonGroup>
+                                                </FormControls>
+                                              </FormSpy>
+                                            </form>
+                                          </FormBase>
                                         </Form>
                                       </FormTemplate>
                                     </PF4FormTemplate>
