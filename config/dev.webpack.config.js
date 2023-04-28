@@ -9,11 +9,11 @@ const insightsProxy = {
 const webpackProxy = {
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
   useProxy: true,
-  env: `${process.env.ENVIRONMENT || 'ci'}-${
+  env: `${process.env.ENVIRONMENT || 'stage'}-${
     process.env.BETA ? 'beta' : 'stable'
   }`, // for accessing prod-beta start your app with ENVIRONMENT=prod and BETA=true
   appUrl: process.env.BETA
-    ? '/beta/settings/applications'
+    ? ['/preview/settings/applications', '/beta/settings/applications']
     : '/settings/applications',
   routes: {
     // insert your API endpoints here if needed
