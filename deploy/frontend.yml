@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: settings-frontend
+objects:
+  - apiVersion: cloud.redhat.com/v1alpha1
+    kind: Frontend
+    metadata:
+      name: applications
+    spec:
+      envName: ${ENV_NAME}
+      title: Applications
+      deploymentRepo: https://github.com/RedHatInsights/settings-frontend
+      API:
+        versions:
+          - v1
+      image: ${IMAGE}:${IMAGE_TAG}
+      navItems:
+        - appId: applications
+          title: Cost Management
+          href: "/settings/applications/cost-management"
+          permissions:
+          - method: isEntitled
+            args:
+            - cost_management
+          - method: hasPermissions
+            args:
+            - - cost-management:*:*
+      module:
+        manifestLocation: "/apps/applications/fed-mods.json"
+        modules:
+          - id: "applications"
+            module: "./RootApp"
+            routes:
+              - pathname: /settings/applications
+
+parameters:
+  - name: ENV_NAME
+    required: true
+  - name: IMAGE_TAG
+    required: true
+  - name: IMAGE
+    value: quay.io/cloudservices/settings-frontend
