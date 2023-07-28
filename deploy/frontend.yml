@@ -14,18 +14,14 @@ objects:
       API:
         versions:
           - v1
+      frontend:
+        paths:
+          - /apps/applications
       image: ${IMAGE}:${IMAGE_TAG}
       navItems:
         - appId: applications
           title: Cost Management
           href: "/settings/applications/cost-management"
-          permissions:
-          - method: isEntitled
-            args:
-            - cost_management
-          - method: hasPermissions
-            args:
-            - - cost-management:*:*
       module:
         manifestLocation: "/apps/applications/fed-mods.json"
         modules:
