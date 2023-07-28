@@ -22,13 +22,6 @@ objects:
         - appId: applications
           title: Cost Management
           href: "/settings/applications/cost-management"
-          permissions:
-          - method: isEntitled
-            args:
-            - cost_management
-          - method: hasPermissions
-            args:
-            - - cost-management:*:*
       module:
         manifestLocation: "/apps/applications/fed-mods.json"
         modules:
