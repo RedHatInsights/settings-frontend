@@ -12,7 +12,7 @@ import NotAuthorized from '@redhat-cloud-services/frontend-components/NotAuthori
 import { register } from '../../store';
 import applicationReducer from '../../store/applicationReducer';
 import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
-import { getSchema, saveValues, getConfig } from '../../actions';
+import { getConfig, getSchema, saveValues } from '../../actions';
 import { RenderForms } from '../../PresentationalComponents';
 import startCase from 'lodash/startCase';
 

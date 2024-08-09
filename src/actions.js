@@ -1,7 +1,7 @@
 import {
+  getConfig as config,
   getApplicationSchema,
   saveValues as save,
-  getConfig as config,
 } from './api';
 import { ACTION_TYPES } from './constants';
 

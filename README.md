@@ -1,6 +1,6 @@
 # Settings Frontend
 
-Global settings frontend for cloud.redhat.com
+Global application's settings frontend for console.redhat.com
 
 ## Usage
 

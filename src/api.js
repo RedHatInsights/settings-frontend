@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {
   authInterceptor,
-  responseDataInterceptor,
+  errorInterceptor,
   interceptor401,
   interceptor500,
-  errorInterceptor,
+  responseDataInterceptor,
 } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 import { load } from 'js-yaml';
 
@@ -31,7 +31,9 @@ axiosInstance.interceptors.response.use(null, errorInterceptor);
 
 export const getConfig = async () => {
   const config = await axiosInstance.get(
-    `${insights.chrome.isBeta() ? '/beta' : ''}/config/main.yml`
+    `/api/chrome-service/v1/static/${
+      insights.chrome.isBeta() ? '/beta' : 'stable'
+    }/${insights.chrome.isProd() ? 'prod' : 'stage'}/main.yml`
   );
   return load(config);
 };
