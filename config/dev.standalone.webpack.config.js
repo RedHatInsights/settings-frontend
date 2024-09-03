@@ -31,15 +31,16 @@ const { config: webpackConfig, plugins } = config({
   },
 });
 
-const modulesConfig = require('@redhat-cloud-services/frontend-components-config/federated-modules')(
-  {
-    root: resolve(__dirname, '../'),
-    useFileHash: false,
-    exposes: {
-      './RootApp': resolve(__dirname, '../src/DevEntry'),
-    },
-  }
-);
+const modulesConfig =
+  require('@redhat-cloud-services/frontend-components-config/federated-modules')(
+    {
+      root: resolve(__dirname, '../'),
+      useFileHash: false,
+      exposes: {
+        './RootApp': resolve(__dirname, '../src/DevEntry'),
+      },
+    }
+  );
 
 plugins.push(modulesConfig);
 
