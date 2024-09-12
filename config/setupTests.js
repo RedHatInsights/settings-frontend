@@ -1,5 +1,12 @@
+import { ReadableStream, TextDecoder, TextEncoder } from 'util';
+
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+global.ReadableStream = ReadableStream;
+
 import { configure, mount, render, shallow } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
+
 import React from 'react';
 
 configure({ adapter: new Adapter() });
