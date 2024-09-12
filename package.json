@@ -10,22 +10,22 @@
   "dependencies": {
     "@babel/compat-data": "^7.13.15",
     "@babel/runtime": "^7.13.17",
-    "@data-driven-forms/pf4-component-mapper": "^3.12.1",
-    "@data-driven-forms/react-form-renderer": "^3.12.1",
-    "@patternfly/patternfly": "^4.151.4",
-    "@patternfly/react-core": "^4.168.9",
-    "@patternfly/react-table": "^4.37.9",
-    "@redhat-cloud-services/frontend-components": "3.4.8",
-    "@redhat-cloud-services/frontend-components-notifications": "^3.2.4",
-    "@redhat-cloud-services/frontend-components-utilities": "^3.5.0",
+    "@data-driven-forms/pf4-component-mapper": "^3.23.3",
+    "@data-driven-forms/react-form-renderer": "^3.23.3",
+    "@patternfly/patternfly": "^5.0.2",
+    "@patternfly/react-core": "^5.0.0",
+    "@patternfly/react-table": "^5.0.0",
+    "@redhat-cloud-services/frontend-components": "4.0.1",
+    "@redhat-cloud-services/frontend-components-notifications": "^4.0.0",
+    "@redhat-cloud-services/frontend-components-utilities": "^4.0.0",
     "babel-plugin-transform-imports": "^2.0.0",
     "classnames": "^2.3.1",
     "js-yaml": "^4.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "redux": "^4.1.0",
+    "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.4",
     "redux-promise-middleware": "^6.1.2"
@@ -51,6 +51,10 @@
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "transformIgnorePatterns": ["node_modules/(?!(axios)/)"],
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
     }
   },
   "devDependencies": {
@@ -60,16 +64,18 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.13.15",
-    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-env": "^7.25.4",
     "@babel/preset-flow": "^7.13.13",
     "@babel/preset-react": "^7.13.13",
+    "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "1.1.0",
-    "@redhat-cloud-services/frontend-components-config": "^4.7.3",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "@redhat-cloud-services/frontend-components-config": "^6.2.8",
+    "@redhat-cloud-services/tsc-transform-imports": "^1.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.4.6",
+    "babel-jest": "^27.5.1",
     "babel-plugin-lodash": "^3.3.4",
+    "cheerio": "^1.0.0-rc.3",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "eslint": "^7.25.0",
@@ -83,11 +89,11 @@
     "stylelint": "^13.13.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-scss": "^3.19.0",
-    "typescript": "^4.7.3",
+    "ts-patch": "^3.0.2",
+    "typescript": "^5.0.0",
     "webpack-bundle-analyzer": "^4.4.1"
   },
   "scripts": {
-    "build": "NODE_ENV=production webpack --config config/prod.webpack.config.js",
     "test": "TZ=UTC jest --verbose --no-cache",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint config src",
@@ -98,11 +104,19 @@
     "start": "NODE_ENV=development webpack serve --config config/dev.webpack.config.js",
     "start:proxy": "NODE_ENV=development PROXY=true webpack serve --config config/dev.webpack.config.js",
     "build:prod": "NODE_ENV=production webpack --config config/prod.webpack.config.js",
-    "deploy": "npm-run-all build:prod lint test",
+    "build": "fec build",
+    "static": "fec static",
     "verify": "npm-run-all build lint test",
-    "nightly": "npm run deploy",
+    "deploy": "npm run verify",
+    "nightly": "npm run verify",
     "start:beta": "NODE_ENV=development BETA=true webpack serve --config config/dev.webpack.config.js",
-    "start:standalone:beta": "NODE_ENV=development BETA=true webpack serve --config config/dev.standalone.webpack.config.js"
+    "start:standalone:beta": "NODE_ENV=development BETA=true webpack serve --config config/dev.standalone.webpack.config.js",
+    "postinstall": "ts-patch install"
+  },
+  "overrides": {
+    "enzyme": {
+      "cheerio": "1.0.0.rc-3"
+    }
   },
   "insights": {
     "appname": "applications"
