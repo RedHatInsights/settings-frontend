@@ -11,7 +11,6 @@ exports[`component should render - multiple schema 1`] = `
       <CardBody>
         <FormRenderer
           FormTemplate={[Function]}
-          clearOnUnmount={false}
           componentMapper={
             Object {
               "checkbox": [Function],
@@ -52,7 +51,6 @@ exports[`component should render - multiple schema 1`] = `
               "wizard": [Function],
             }
           }
-          initialValues={Object {}}
           onSubmit={[Function]}
           schema={Object {}}
           submitLabel="Save"
@@ -78,7 +76,6 @@ exports[`component should render - multiple schema 1`] = `
       <CardBody>
         <FormRenderer
           FormTemplate={[Function]}
-          clearOnUnmount={false}
           componentMapper={
             Object {
               "checkbox": [Function],
@@ -119,7 +116,6 @@ exports[`component should render - multiple schema 1`] = `
               "wizard": [Function],
             }
           }
-          initialValues={Object {}}
           onSubmit={[Function]}
           schema={Object {}}
           submitLabel="Save"
@@ -149,7 +145,6 @@ exports[`component should render - no data 1`] = `
     <Card>
       <CardBody>
         <Skeleton
-          isDark={false}
           size="lg"
         />
       </CardBody>
@@ -175,7 +170,6 @@ exports[`component should render - one schema 1`] = `
       <CardBody>
         <FormRenderer
           FormTemplate={[Function]}
-          clearOnUnmount={false}
           componentMapper={
             Object {
               "checkbox": [Function],
@@ -216,7 +210,6 @@ exports[`component should render - one schema 1`] = `
               "wizard": [Function],
             }
           }
-          initialValues={Object {}}
           onSubmit={[Function]}
           schema={Object {}}
           submitLabel="Save"
