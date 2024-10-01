@@ -69,7 +69,7 @@
     "@babel/preset-react": "^7.13.13",
     "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "1.1.0",
-    "@redhat-cloud-services/frontend-components-config": "^6.2.8",
+    "@redhat-cloud-services/frontend-components-config": "^6.2.10",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
