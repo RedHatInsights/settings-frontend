@@ -14,7 +14,7 @@
     "@data-driven-forms/react-form-renderer": "^3.23.3",
     "@patternfly/patternfly": "^5.0.2",
     "@patternfly/react-core": "^5.0.0",
-    "@patternfly/react-table": "^5.0.0",
+    "@patternfly/react-table": "^5.4.11",
     "@redhat-cloud-services/frontend-components": "4.0.1",
     "@redhat-cloud-services/frontend-components-notifications": "^4.0.0",
     "@redhat-cloud-services/frontend-components-utilities": "^4.0.0",
